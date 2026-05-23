@@ -1,0 +1,674 @@
+[
+  {
+    "id": "niacinamide",
+    "commonName": "Niacinamide",
+    "inci": "Niacinamide",
+    "cas": "98-92-0",
+    "category": "active",
+    "subcategory": "vitamin",
+    "functions": ["brightening", "barrier-repair", "sebum-control", "anti-inflammatory"],
+    "phRange": { "min": 5.0, "max": 7.0, "optimal": 6.0 },
+    "concentration": { "min": 2, "max": 10, "typical": 5, "unit": "% w/w" },
+    "solubility": "water",
+    "skinTypes": ["oily", "combination", "sensitive", "acne-prone"],
+    "concerns": ["hyperpigmentation", "enlarged-pores", "sebum", "redness", "barrier-damage"],
+    "interactions": {
+      "compatible": ["hyaluronic-acid", "zinc", "peptides", "ceramides", "retinol"],
+      "caution": ["ascorbic-acid"],
+      "note": "At high temps or low pH, niacinamide and ascorbic acid can form nicotinic acid — keep pH above 3.5 and avoid prolonged heat."
+    },
+    "regulatory": {
+      "eu": "Permitted — no restriction",
+      "us": "OTC cosmetic — permitted",
+      "jp": "Quasi-drug approved for brightening at ≥3%"
+    },
+    "evidence": "clinical",
+    "stability": "Stable across wide pH and temperature. Avoid prolonged exposure above 80°C.",
+    "description": "Water-soluble vitamin B3 derivative. Inhibits melanosome transfer to keratinocytes, reducing pigmentation. Upregulates ceramide, free fatty acid, and cholesterol synthesis to reinforce the stratum corneum barrier. Reduces sebaceous gland activity at 2–4%. Anti-inflammatory via suppression of VEGF and IL-8.",
+    "keyStudy": "Bissett et al. (2005) — 5% niacinamide showed significant reduction in fine lines, yellowing, redness and hyperpigmented spots vs placebo at 12 weeks."
+  },
+  {
+    "id": "sodium-hyaluronate",
+    "commonName": "Hyaluronic Acid",
+    "inci": "Sodium Hyaluronate",
+    "cas": "9067-32-7",
+    "category": "humectant",
+    "subcategory": "polysaccharide",
+    "functions": ["humectant", "film-forming", "wound-healing", "anti-inflammatory"],
+    "phRange": { "min": 5.0, "max": 8.0, "optimal": 6.5 },
+    "concentration": { "min": 0.1, "max": 2.0, "typical": 0.5, "unit": "% w/w" },
+    "solubility": "water",
+    "skinTypes": ["all", "dry", "dehydrated", "sensitive"],
+    "concerns": ["dehydration", "barrier-damage", "fine-lines"],
+    "interactions": {
+      "compatible": ["niacinamide", "ceramides", "peptides", "vitamin-c", "retinol"],
+      "caution": [],
+      "note": "In very low humidity environments, high-MW HA can draw moisture from the dermis rather than the environment — pair with an occlusive."
+    },
+    "regulatory": {
+      "eu": "Permitted",
+      "us": "Permitted",
+      "jp": "Permitted — listed as moisturising agent"
+    },
+    "evidence": "clinical",
+    "stability": "Degrades at pH below 4 and above 11. Susceptible to hyaluronidase enzymatic degradation. Store below 25°C.",
+    "description": "Glycosaminoglycan naturally present in the extracellular matrix, vitreous humor, and synovial fluid. Holds up to 1,000× its weight in water via hydrogen bonding. Molecular weight determines function: high-MW (>1,000 kDa) forms a film on the stratum corneum surface; low-MW (10–50 kDa) penetrates deeper and may stimulate endogenous HA synthesis. Ultra-low-MW fragments (<10 kDa) are pro-inflammatory at high concentrations.",
+    "keyStudy": "Pavicic et al. (2011) — formulations with three MW grades of HA showed superior hydration and wrinkle reduction vs single-MW controls."
+  },
+  {
+    "id": "ascorbic-acid",
+    "commonName": "Vitamin C",
+    "inci": "Ascorbic Acid",
+    "cas": "50-81-7",
+    "category": "antioxidant",
+    "subcategory": "vitamin",
+    "functions": ["antioxidant", "brightening", "collagen-synthesis", "photoprotection"],
+    "phRange": { "min": 2.5, "max": 3.5, "optimal": 3.0 },
+    "concentration": { "min": 5, "max": 20, "typical": 10, "unit": "% w/w" },
+    "solubility": "water",
+    "skinTypes": ["normal", "oily", "combination", "aging"],
+    "concerns": ["hyperpigmentation", "photoageing", "dullness", "fine-lines"],
+    "interactions": {
+      "compatible": ["ferulic-acid", "tocopherol", "niacinamide-at-neutral-ph", "zinc"],
+      "caution": ["niacinamide-at-low-ph", "benzoyl-peroxide", "retinol-direct-mix"],
+      "note": "Ferulic acid (0.5%) + Vitamin E (1%) stabilise L-ascorbic acid and double its photoprotective effect. Do not combine with benzoyl peroxide — oxidises AA instantly."
+    },
+    "regulatory": {
+      "eu": "Permitted",
+      "us": "Permitted",
+      "jp": "Quasi-drug approved for brightening"
+    },
+    "evidence": "clinical",
+    "stability": "Highly unstable — oxidises to dehydroascorbic acid (DHAA) then diketogulonic acid (no activity). Stabilise with pH <3.5, anhydrous formulations, or use stable derivatives (ascorbyl glucoside, AA2G, SAP). Amber packaging mandatory. Discard if formula turns yellow-orange.",
+    "description": "L-ascorbic acid is the only bioavailable form of vitamin C for topical use. Donates electrons to neutralise reactive oxygen species, regenerates vitamin E, inhibits tyrosinase (melanin synthesis), and acts as a cofactor for prolyl and lysyl hydroxylase enzymes essential for collagen crosslinking. Concentration-dependent: below 8% minimal effect; clinical efficacy demonstrated at 10–20%.",
+    "keyStudy": "Lin et al. (2003) — 15% L-ascorbic acid + 1% tocopherol + 0.5% ferulic acid provided 8× photoprotection vs vehicle after UV exposure."
+  },
+  {
+    "id": "retinol",
+    "commonName": "Retinol",
+    "inci": "Retinol",
+    "cas": "68-26-8",
+    "category": "active",
+    "subcategory": "retinoid",
+    "functions": ["cell-turnover", "collagen-synthesis", "anti-acne", "brightening"],
+    "phRange": { "min": 4.5, "max": 6.5, "optimal": 5.5 },
+    "concentration": { "min": 0.01, "max": 1.0, "typical": 0.3, "unit": "% w/w" },
+    "solubility": "oil",
+    "skinTypes": ["normal", "aging", "acne-prone"],
+    "concerns": ["fine-lines", "wrinkles", "acne", "hyperpigmentation", "uneven-texture"],
+    "interactions": {
+      "compatible": ["niacinamide", "ceramides", "peptides", "squalane"],
+      "caution": ["benzoyl-peroxide", "AHA-BHA", "ascorbic-acid-direct"],
+      "note": "Retinol converts to retinaldehyde then retinoic acid in skin. Retinaldehyde (RAL) is 11× more potent than retinol with less irritation. Buffer with niacinamide and ceramides during retinisation period."
+    },
+    "regulatory": {
+      "eu": "Restricted: max 0.3% face/body; 0.05% eye area; banned in leave-on products for children <3",
+      "us": "OTC cosmetic — no concentration limit",
+      "jp": "Permitted — no restriction in cosmetics"
+    },
+    "evidence": "clinical",
+    "stability": "Degrades rapidly under UV, oxygen, and heat. Encapsulation (liposomes, microspheres) or anhydrous oil formulations significantly improve stability. Always use opaque, airless packaging.",
+    "description": "First-generation retinoid. Must be converted to retinaldehyde by SDR enzymes then to all-trans retinoic acid (tretinoin) by RALDH enzymes in keratinocytes. Binds retinoic acid receptors (RAR-α, RAR-β, RAR-γ) to regulate >500 genes involved in cell proliferation, differentiation, and collagen synthesis. Increases epidermal thickness, stimulates fibroblast activity, inhibits MMP-1 (collagen-degrading enzyme). Retinisation (initial irritation, peeling) is expected in weeks 1–4.",
+    "keyStudy": "Kafi et al. (2007) — 0.4% retinol applied weekly for 6 months significantly increased procollagen I and epidermal thickness vs vehicle."
+  },
+  {
+    "id": "ceramide-np",
+    "commonName": "Ceramide NP",
+    "inci": "Ceramide NP",
+    "cas": "74713-12-5",
+    "category": "emollient",
+    "subcategory": "lipid",
+    "functions": ["barrier-repair", "emollient", "anti-inflammatory"],
+    "phRange": { "min": 4.5, "max": 6.5, "optimal": 5.5 },
+    "concentration": { "min": 0.5, "max": 3.0, "typical": 1.0, "unit": "% w/w" },
+    "solubility": "oil",
+    "skinTypes": ["dry", "sensitive", "eczema", "rosacea", "all"],
+    "concerns": ["barrier-damage", "eczema", "dry-skin", "sensitivity"],
+    "interactions": {
+      "compatible": ["cholesterol", "fatty-acids", "niacinamide", "hyaluronic-acid"],
+      "caution": [],
+      "note": "Most effective when formulated in the correct lamellar ratio: 1:1:1 ceramide:cholesterol:free fatty acid (molar ratio). This mimics the natural SC lipid architecture."
+    },
+    "regulatory": {
+      "eu": "Permitted",
+      "us": "Permitted — used in OTC skin protectant products",
+      "jp": "Permitted"
+    },
+    "evidence": "clinical",
+    "stability": "Stable in emulsion. Requires oil phase solubilisation at elevated temperature (>70°C). Sensitive to very low pH (<4).",
+    "description": "Ceramides are the dominant lipid class in the stratum corneum (~50% of intercellular lipids), forming lamellar bilayer structures that regulate TEWL and barrier integrity. Ceramide NP (N-(2-hydroxypalmitoyl)-sphinganine) is the most abundant SC ceramide species. Patients with atopic dermatitis show 30–60% reduction in ceramide levels. Topical ceramide replenishment restores lamellar body secretion and reduces TEWL. Must be delivered in liposomal or lamellar emulsion systems for efficacy — simple o/w emulsions show poor deposition.",
+    "keyStudy": "Chamlin et al. (2002) — ceramide-dominant barrier cream significantly improved SCORAD in atopic dermatitis patients vs standard emollient."
+  },
+  {
+    "id": "glycerin",
+    "commonName": "Glycerin",
+    "inci": "Glycerin",
+    "cas": "56-81-5",
+    "category": "humectant",
+    "subcategory": "polyol",
+    "functions": ["humectant", "emollient", "skin-conditioning", "solvent"],
+    "phRange": { "min": 3.0, "max": 9.0, "optimal": 6.0 },
+    "concentration": { "min": 1, "max": 30, "typical": 5, "unit": "% w/w" },
+    "solubility": "water",
+    "skinTypes": ["all"],
+    "concerns": ["dehydration", "dry-skin", "barrier-damage"],
+    "interactions": {
+      "compatible": ["hyaluronic-acid", "urea", "ceramides", "niacinamide", "most-actives"],
+      "caution": [],
+      "note": "Above 30% w/w, glycerin becomes occlusive and may cause a sticky, uncomfortable skin feel. At very high concentrations (>80%) it becomes bacteriostatic."
+    },
+    "regulatory": {
+      "eu": "Permitted — also listed as excipient in pharmacopoeia",
+      "us": "GRAS — also an approved OTC skin protectant",
+      "jp": "Permitted"
+    },
+    "evidence": "clinical",
+    "stability": "Highly stable. Hygroscopic — absorbs atmospheric moisture. Avoid storage in open containers.",
+    "description": "Trihydric alcohol (1,2,3-propanetriol). Acts via multiple mechanisms: draws water into the stratum corneum via osmosis, mimics natural moisturising factors (NMFs), and upregulates aquaporin-3 (AQP3) water channel expression in the epidermis. Also accelerates barrier recovery after SDS-induced disruption. At therapeutic concentrations (15–30%), competes with urea as the most evidence-backed humectant in clinical dermatology.",
+    "keyStudy": "Fluhr et al. (2008) — glycerin-containing formulations significantly accelerated barrier recovery and increased SC hydration vs non-glycerin controls."
+  },
+  {
+    "id": "salicylic-acid",
+    "commonName": "Salicylic Acid",
+    "inci": "Salicylic Acid",
+    "cas": "69-72-7",
+    "category": "active",
+    "subcategory": "BHA",
+    "functions": ["exfoliant", "anti-acne", "anti-inflammatory", "comedolytic"],
+    "phRange": { "min": 3.0, "max": 4.0, "optimal": 3.5 },
+    "concentration": { "min": 0.5, "max": 2.0, "typical": 1.5, "unit": "% w/w" },
+    "solubility": "oil",
+    "skinTypes": ["oily", "acne-prone", "combination"],
+    "concerns": ["acne", "blackheads", "enlarged-pores", "excess-sebum", "keratosis-pilaris"],
+    "interactions": {
+      "compatible": ["niacinamide", "zinc", "green-tea", "panthenol"],
+      "caution": ["retinol", "AHA", "benzoyl-peroxide"],
+      "note": "Lipid-soluble — penetrates sebaceous follicles unlike AHAs. Avoid combining with retinol (over-exfoliation). Can reduce AHA efficacy by competing for pH-dependent ionisation."
+    },
+    "regulatory": {
+      "eu": "Restricted: max 2% in face products; not for children <3; prohibited in body lotions applied over large areas",
+      "us": "OTC drug — acne treatment at 0.5–2%",
+      "jp": "Quasi-drug — approved for acne at ≤2%"
+    },
+    "evidence": "clinical",
+    "stability": "Stable in anhydrous and low-water formulations. Crystallises at pH > 4.5. Ensure complete dissolution at elevated temperature during manufacture.",
+    "description": "Beta-hydroxy acid (BHA). Lipophilic nature allows follicular penetration where AHAs cannot reach — directly disrupts desmosomes in the follicle lining, dissolving the follicular plug (comedone). Potent anti-inflammatory via inhibition of NF-κB and COX-1/2 pathways — explains its efficacy in inflammatory acne beyond purely keratolytic action. At 2%, demonstrated equivalent efficacy to topical 1% clindamycin for mild-moderate acne without the risk of antibiotic resistance.",
+    "keyStudy": "Shalita (1989) — 2% salicylic acid in a leave-on formulation significantly reduced comedone count and inflammatory lesions at 12 weeks."
+  },
+  {
+    "id": "azelaic-acid",
+    "commonName": "Azelaic Acid",
+    "inci": "Azelaic Acid",
+    "cas": "123-99-9",
+    "category": "active",
+    "subcategory": "dicarboxylic-acid",
+    "functions": ["brightening", "anti-acne", "anti-rosacea", "antioxidant", "exfoliant"],
+    "phRange": { "min": 4.0, "max": 5.5, "optimal": 4.5 },
+    "concentration": { "min": 5, "max": 20, "typical": 10, "unit": "% w/w" },
+    "solubility": "water",
+    "skinTypes": ["sensitive", "rosacea", "acne-prone", "melasma"],
+    "concerns": ["hyperpigmentation", "melasma", "rosacea", "acne", "post-inflammatory-hyperpigmentation"],
+    "interactions": {
+      "compatible": ["niacinamide", "hyaluronic-acid", "ceramides", "tranexamic-acid"],
+      "caution": [],
+      "note": "Safe in pregnancy (category B) — relevant as melasma is common in pregnancy. Combine with SPF for maximum brightening efficacy."
+    },
+    "regulatory": {
+      "eu": "Permitted up to 10% in cosmetics; 15–20% is prescription-only in some EU states",
+      "us": "Rx product (Azelex 20%, Finacea 15%); cosmetic at ≤10%",
+      "jp": "Permitted in cosmetics"
+    },
+    "evidence": "clinical",
+    "stability": "Relatively stable. Poorly water-soluble at high concentrations — requires propylene glycol or glycofurol as solubiliser. Microencapsulation improves both stability and tolerability.",
+    "description": "Naturally occurring dicarboxylic acid produced by Malassezia furfur yeast on skin. Multi-mechanism active: inhibits tyrosinase (selectively in hyperactive melanocytes — does not depigment normal skin), antimicrobial against P. acnes and S. epidermidis, anti-inflammatory via inhibition of reactive oxygen species, and mild comedolytic effect. Particularly indicated for PIH in darker skin types (Fitzpatrick III–VI) where more aggressive actives risk paradoxical hyperpigmentation.",
+    "keyStudy": "Draelos et al. (2006) — 20% azelaic acid gel significantly reduced melasma vs vehicle; comparable to 4% hydroquinone with superior tolerability."
+  },
+  {
+    "id": "bakuchiol",
+    "commonName": "Bakuchiol",
+    "inci": "Bakuchiol",
+    "cas": "10309-37-2",
+    "category": "active",
+    "subcategory": "retinol-alternative",
+    "functions": ["cell-turnover", "collagen-synthesis", "antioxidant", "anti-inflammatory"],
+    "phRange": { "min": 4.5, "max": 7.0, "optimal": 6.0 },
+    "concentration": { "min": 0.5, "max": 2.0, "typical": 1.0, "unit": "% w/w" },
+    "solubility": "oil",
+    "skinTypes": ["sensitive", "dry", "aging", "all"],
+    "concerns": ["fine-lines", "wrinkles", "photodamage", "uneven-texture"],
+    "interactions": {
+      "compatible": ["hyaluronic-acid", "ceramides", "vitamin-c", "niacinamide", "retinol"],
+      "caution": [],
+      "note": "Can be layered with retinol for enhanced efficacy without additively increasing irritation. Safe during pregnancy — a key advantage over retinoids."
+    },
+    "regulatory": {
+      "eu": "Permitted",
+      "us": "Permitted",
+      "jp": "Permitted"
+    },
+    "evidence": "clinical",
+    "stability": "More photostable than retinol. Stable in both water and oil phases. Suitable for daytime use unlike retinol.",
+    "description": "Meroterpene phenol extracted from Psoralea corylifolia (babchi) seeds. Activates retinoid receptors (RAR and RXR) via a distinct binding mechanism to retinol, upregulating collagen type I, III, IV synthesis, and fibrillin-1. Demonstrates anti-inflammatory effects via NF-κB suppression and antioxidant activity. Clinical trials show equivalent reduction in fine lines, wrinkles, and pigmentation vs 0.5% retinol at 12 weeks with significantly lower rates of scaling, dryness, and stinging.",
+    "keyStudy": "Dhaliwal et al. (2019) — randomised split-face trial: bakuchiol non-inferior to retinol for photoageing parameters with significantly fewer adverse effects."
+  },
+  {
+    "id": "squalane",
+    "commonName": "Squalane",
+    "inci": "Squalane",
+    "cas": "111-01-3",
+    "category": "emollient",
+    "subcategory": "hydrocarbon",
+    "functions": ["emollient", "occlusive", "skin-conditioning", "antioxidant"],
+    "phRange": { "min": 4.0, "max": 9.0, "optimal": 6.0 },
+    "concentration": { "min": 1, "max": 100, "typical": 5, "unit": "% w/w" },
+    "solubility": "oil",
+    "skinTypes": ["all", "oily", "acne-prone", "sensitive"],
+    "concerns": ["dehydration", "dry-skin", "barrier-damage", "fine-lines"],
+    "interactions": {
+      "compatible": ["retinol", "vitamin-c", "all-actives", "ceramides"],
+      "caution": [],
+      "note": "Squalane (saturated) is chemically distinct from squalene (unsaturated) — squalene in sebum oxidises and is pro-comedogenic; squalane is non-comedogenic and highly stable."
+    },
+    "regulatory": {
+      "eu": "Permitted — plant-derived (sugarcane) preferred over shark liver origin",
+      "us": "Permitted",
+      "jp": "Permitted"
+    },
+    "evidence": "clinical",
+    "stability": "Exceptionally stable — fully saturated, resistant to oxidative rancidity. Indefinite shelf life in sealed packaging.",
+    "description": "Fully hydrogenated derivative of squalene, a natural component of human sebum (≈12% of sebum lipids). Non-comedogenic despite being an oil — closely mimics the skin's own lipid chemistry. Low viscosity (22 cSt) allows rapid spreading and non-greasy skin feel. Forms a semi-occlusive film reducing TEWL without fully blocking moisture exchange. Ideal carrier for oil-soluble actives (retinol, vitamin E) and suitable for sensitive, rosacea-prone, and acne-prone skin types due to near-zero irritation potential.",
+    "keyStudy": "Sethi et al. (2016) — squalane-containing formulation significantly reduced TEWL and improved SC elasticity in xerotic skin vs petrolatum control."
+  },
+  {
+    "id": "panthenol",
+    "commonName": "Panthenol (Vitamin B5)",
+    "inci": "Panthenol",
+    "cas": "81-13-0",
+    "category": "active",
+    "subcategory": "vitamin",
+    "functions": ["humectant", "barrier-repair", "wound-healing", "anti-inflammatory", "hair-conditioning"],
+    "phRange": { "min": 4.0, "max": 8.0, "optimal": 6.0 },
+    "concentration": { "min": 0.5, "max": 5.0, "typical": 2.0, "unit": "% w/w" },
+    "solubility": "water",
+    "skinTypes": ["all", "sensitive", "irritated"],
+    "concerns": ["barrier-damage", "irritation", "wound-healing", "dehydration"],
+    "interactions": {
+      "compatible": ["ceramides", "niacinamide", "hyaluronic-acid", "allantoin", "all-actives"],
+      "caution": [],
+      "note": "D-panthenol is the biologically active isomer — ensure supplier specifies D-form. Racemic DL-panthenol has reduced efficacy."
+    },
+    "regulatory": {
+      "eu": "Permitted",
+      "us": "Permitted — OTC wound healing aid",
+      "jp": "Permitted"
+    },
+    "evidence": "clinical",
+    "stability": "Stable in aqueous systems. Slowly hydrolyses to pantothenic acid (vitamin B5 — also active) over time. Stable at pH 4–7 at room temperature.",
+    "description": "Pro-vitamin of pantothenic acid (vitamin B5). Absorbed into skin and converted to pantothenic acid, a precursor of Coenzyme A essential for fatty acid metabolism and ceramide synthesis. Acts simultaneously as humectant (binds water in SC), barrier-repair agent (stimulates keratinocyte proliferation), and wound-healing accelerant (fibroblast proliferation and migration). At 2–5%, demonstrated significant improvement in post-procedure skin recovery and reduction in TEWL in barrier-compromised skin.",
+    "keyStudy": "Proksch & Nissen (2002) — 2% panthenol cream significantly accelerated barrier recovery and reduced erythema in sodium lauryl sulphate-irritated skin."
+  },
+  {
+    "id": "tocopherol",
+    "commonName": "Vitamin E",
+    "inci": "Tocopherol",
+    "cas": "59-02-9",
+    "category": "antioxidant",
+    "subcategory": "vitamin",
+    "functions": ["antioxidant", "emollient", "photoprotection", "barrier-repair"],
+    "phRange": { "min": 4.0, "max": 8.0, "optimal": 6.0 },
+    "concentration": { "min": 0.1, "max": 5.0, "typical": 1.0, "unit": "% w/w" },
+    "solubility": "oil",
+    "skinTypes": ["all", "dry", "aging"],
+    "concerns": ["photoageing", "oxidative-stress", "dry-skin", "scar-prevention"],
+    "interactions": {
+      "compatible": ["ascorbic-acid", "ferulic-acid", "squalane", "retinol"],
+      "caution": [],
+      "note": "The Pinnell formula (15% AA + 1% tocopherol + 0.5% ferulic acid) is the gold-standard antioxidant synergy — ferulic acid photostabilises both vitamins and doubles their UV-protective effect."
+    },
+    "regulatory": {
+      "eu": "Permitted — d-alpha-tocopherol (natural) preferred; dl-alpha-tocopherol (synthetic) has 50% lower biological activity",
+      "us": "Permitted — GRAS",
+      "jp": "Permitted"
+    },
+    "evidence": "clinical",
+    "stability": "Oil-soluble antioxidant itself susceptible to oxidation — ironic but true. Use in closed systems. Tocopheryl acetate is a more stable ester but requires skin-surface hydrolysis to become active; conversion rate is variable and disputed.",
+    "description": "Alpha-tocopherol is the most bioavailable and bioactive of the eight vitamin E isomers (α, β, γ, δ-tocopherols and tocotrienols). Primary lipid-soluble chain-breaking antioxidant in cell membranes and sebum. Quenches singlet oxygen, scavenges lipid peroxyl radicals, and spares ascorbic acid from oxidation. Incorporated into lamellar bodies and sebum — provides natural photoprotection in the lipid peroxidation cascade initiated by UV radiation. Reduces UV-induced erythema and prevents immunosuppression.",
+    "keyStudy": "Rhie et al. (2001) — topical alpha-tocopherol reduced UV-B-induced lipid peroxidation markers by 60% and erythema by 34%."
+  },
+  {
+    "id": "ferulic-acid",
+    "commonName": "Ferulic Acid",
+    "inci": "Ferulic Acid",
+    "cas": "1135-24-6",
+    "category": "antioxidant",
+    "subcategory": "phenolic-acid",
+    "functions": ["antioxidant", "photoprotection", "brightening", "anti-inflammatory"],
+    "phRange": { "min": 2.5, "max": 4.0, "optimal": 3.5 },
+    "concentration": { "min": 0.1, "max": 1.0, "typical": 0.5, "unit": "% w/w" },
+    "solubility": "both",
+    "skinTypes": ["all", "aging", "sensitive"],
+    "concerns": ["photoageing", "oxidative-stress", "hyperpigmentation"],
+    "interactions": {
+      "compatible": ["ascorbic-acid", "tocopherol", "resveratrol", "niacinamide"],
+      "caution": [],
+      "note": "Essential stabiliser for L-ascorbic acid serums. Without ferulic acid, vitamin C degrades within days in aqueous solution at room temperature."
+    },
+    "regulatory": {
+      "eu": "Permitted",
+      "us": "Permitted",
+      "jp": "Permitted"
+    },
+    "evidence": "clinical",
+    "stability": "Relatively stable in anhydrous formulations. In aqueous systems, acts as antioxidant itself — extends formula shelf life. Maintains stability in the pH range 2.5–4.",
+    "description": "Hydroxycinnamic acid derivative found in cell walls of plants (rice bran, wheat bran, oats). Potent antioxidant — scavenges hydroxyl radicals, superoxide, and nitric oxide. More critically, forms a hydrogen-bonded complex with ascorbic acid and tocopherol that photostabilises both molecules, significantly extending their half-life under UV exposure. Also inhibits tyrosinase and COX enzymes independently. The synergistic combination with vitamins C and E is one of the most validated antioxidant systems in photoprotection literature.",
+    "keyStudy": "Lin et al. (2005) — 0.5% ferulic acid in a vitamin C + E serum doubled photoprotection (as measured by thymine dimer formation) vs vitamin C + E without ferulic acid."
+  },
+  {
+    "id": "resveratrol",
+    "commonName": "Resveratrol",
+    "inci": "Resveratrol",
+    "cas": "501-36-0",
+    "category": "antioxidant",
+    "subcategory": "stilbene-polyphenol",
+    "functions": ["antioxidant", "anti-inflammatory", "anti-ageing", "brightening"],
+    "phRange": { "min": 4.0, "max": 6.5, "optimal": 5.5 },
+    "concentration": { "min": 0.1, "max": 1.0, "typical": 0.5, "unit": "% w/w" },
+    "solubility": "both",
+    "skinTypes": ["all", "aging", "sensitive"],
+    "concerns": ["oxidative-stress", "photoageing", "hyperpigmentation", "inflammation"],
+    "interactions": {
+      "compatible": ["ferulic-acid", "niacinamide", "vitamin-c", "bakuchiol"],
+      "caution": [],
+      "note": "Trans-resveratrol is the bioactive isomer; cis-resveratrol has reduced activity. UV light converts trans to cis — dark packaging essential. Combine with ferulic acid for enhanced stability."
+    },
+    "regulatory": {
+      "eu": "Permitted",
+      "us": "Permitted",
+      "jp": "Permitted"
+    },
+    "evidence": "in_vivo",
+    "stability": "Photolabile — rapidly converts trans→cis under UV. Poor water solubility. Encapsulation (cyclodextrin inclusion complexes, liposomes) significantly improves both stability and bioavailability.",
+    "description": "Polyphenolic stilbene compound found in grape skin, Japanese knotweed (Polygonum cuspidatum), and red wine. Activates SIRT-1 (sirtuin-1), a NAD+-dependent deacetylase involved in cellular stress response, longevity pathways, and inflammation regulation. Potent free radical scavenger — DPPH radical scavenging superior to vitamin C in some assays. Inhibits COX-1/2, NF-κB, and AP-1. Suppresses melanogenesis via downregulation of MITF and tyrosinase. Limited clinical data vs in vitro / in vivo — promising but evidence base thinner than vitamin C.",
+    "keyStudy": "Fabbrocini et al. (2011) — resveratrol-containing formulation significantly reduced melanin index and improved skin tone uniformity at 60 days."
+  },
+  {
+    "id": "caffeine",
+    "commonName": "Caffeine",
+    "inci": "Caffeine",
+    "cas": "58-08-2",
+    "category": "active",
+    "subcategory": "xanthine-alkaloid",
+    "functions": ["antioxidant", "anti-cellulite", "anti-puffiness", "photoprotection"],
+    "phRange": { "min": 4.0, "max": 7.0, "optimal": 6.0 },
+    "concentration": { "min": 1, "max": 5, "typical": 3, "unit": "% w/w" },
+    "solubility": "water",
+    "skinTypes": ["all"],
+    "concerns": ["puffiness", "dark-circles", "cellulite", "photoageing"],
+    "interactions": {
+      "compatible": ["retinol", "niacinamide", "green-tea", "hyaluronic-acid"],
+      "caution": [],
+      "note": "Caffeine's phosphodiesterase inhibition is the primary mechanism for lipolysis stimulation in adipocytes — relevant for cellulite formulations. Penetration is limited; clinical efficacy of anti-cellulite claims remains debated."
+    },
+    "regulatory": {
+      "eu": "Permitted. Cellulite claims require qualifying language.",
+      "us": "Permitted",
+      "jp": "Permitted"
+    },
+    "evidence": "in_vivo",
+    "stability": "Stable in aqueous systems across wide pH range. Photostable.",
+    "description": "Xanthine alkaloid and phosphodiesterase inhibitor. Penetrates stratum corneum readily due to small molecular weight (194 Da). In keratinocytes, inhibits UV-induced apoptosis via inhibition of ATR kinase — may reduce UV-induced DNA damage. In adipocytes, inhibits phosphodiesterase → increases cAMP → stimulates hormone-sensitive lipase → lipolysis. In periorbital area, reduces lymphatic stagnation and vasoconstriction reduces appearance of dark circles. Antioxidant activity via electron donation.",
+    "keyStudy": "Herman & Herman (2013) — topical 3% caffeine reduced subcutaneous fat layer thickness and improved microcirculation vs placebo in a 4-week study."
+  },
+  {
+    "id": "tranexamic-acid",
+    "commonName": "Tranexamic Acid",
+    "inci": "Tranexamic Acid",
+    "cas": "1197-18-8",
+    "category": "active",
+    "subcategory": "amino-acid-derivative",
+    "functions": ["brightening", "anti-melasma", "anti-inflammatory"],
+    "phRange": { "min": 5.0, "max": 7.0, "optimal": 6.0 },
+    "concentration": { "min": 2, "max": 5, "typical": 3, "unit": "% w/w" },
+    "solubility": "water",
+    "skinTypes": ["all", "sensitive", "melasma", "PIH"],
+    "concerns": ["melasma", "post-inflammatory-hyperpigmentation", "hyperpigmentation", "redness"],
+    "interactions": {
+      "compatible": ["niacinamide", "azelaic-acid", "hyaluronic-acid", "ceramides"],
+      "caution": [],
+      "note": "Increasingly considered first-line for melasma — superior tolerability vs hydroquinone, no risk of ochronosis, safe in darker skin types. Combine with SPF 30+ for best outcomes."
+    },
+    "regulatory": {
+      "eu": "Permitted in cosmetics",
+      "us": "Permitted in cosmetics (not an FDA drug for topical use)",
+      "jp": "Quasi-drug approved for whitening at ≥2%"
+    },
+    "evidence": "clinical",
+    "stability": "Stable in aqueous formulations. Good heat and pH stability.",
+    "description": "Synthetic lysine analogue originally developed as an antifibrinolytic drug (IV use in surgery). Topically, disrupts the plasmin–keratinocyte interaction that triggers UV-induced prostaglandin E2 release, which normally stimulates melanogenesis. Also directly inhibits tyrosinase. Emerging as preferred alternative to hydroquinone — no cytotoxicity to normal melanocytes, no risk of exogenous ochronosis, and superior safety in Fitzpatrick types IV–VI. Multiple RCTs now support efficacy comparable to 4% hydroquinone for melasma.",
+    "keyStudy": "Sharma et al. (2017) — 3% topical tranexamic acid non-inferior to 3% hydroquinone for melasma MASI score reduction, with significantly fewer side effects."
+  },
+  {
+    "id": "zinc-oxide",
+    "commonName": "Zinc Oxide",
+    "inci": "Zinc Oxide",
+    "cas": "1314-13-2",
+    "category": "SPF",
+    "subcategory": "mineral-filter",
+    "functions": ["UV-filter", "broad-spectrum", "anti-inflammatory", "antimicrobial"],
+    "phRange": { "min": 5.0, "max": 8.0, "optimal": 6.5 },
+    "concentration": { "min": 5, "max": 25, "typical": 15, "unit": "% w/w" },
+    "solubility": "oil",
+    "skinTypes": ["all", "sensitive", "acne-prone", "rosacea"],
+    "concerns": ["UV-protection", "broad-spectrum", "sensitive-skin"],
+    "interactions": {
+      "compatible": ["titanium-dioxide", "antioxidants", "niacinamide"],
+      "caution": ["ascorbic-acid"],
+      "note": "ZnO can catalyse ascorbic acid oxidation via photocatalytic activity — avoid high concentrations of AA in mineral SPF formulas. Nano-particle grade (≤100nm) penetration debate: evidence supports no dermal penetration through intact skin."
+    },
+    "regulatory": {
+      "eu": "UV filter — permitted at ≤25%; nano form requires labelling as [nano]",
+      "us": "OTC Category I (GRASE) sunscreen active at 1–25%",
+      "jp": "Permitted UV filter at ≤25%"
+    },
+    "evidence": "clinical",
+    "stability": "Inherently photostable — does not degrade under UV. Can photocatalyse other formula components; encapsulation (silica, alumina coating) mitigates this.",
+    "description": "Inorganic UV filter with true broad-spectrum coverage — absorbs and scatters both UVA (320–400nm) and UVB (290–320nm). Unlike chemical filters, works immediately without 20-minute activation period. Anti-inflammatory and antimicrobial properties independent of UV filtering — relevant for acne-prone and rosacea skin. Key formulation challenge: high refractive index causes white cast, particularly on deeper skin tones. Micronised particles (200–350nm) reduce whitening while maintaining efficacy. Nano-particles (<100nm) are essentially invisible but face ongoing regulatory scrutiny.",
+    "keyStudy": "Pinnell et al. (2000) — 10% micronised ZnO formulation demonstrated broad-spectrum protection with SPF 20 and UVA-PF 13 with favourable cosmetic acceptability."
+  },
+  {
+    "id": "phenoxyethanol",
+    "commonName": "Phenoxyethanol",
+    "inci": "Phenoxyethanol",
+    "cas": "122-99-6",
+    "category": "preservative",
+    "subcategory": "glycol-ether",
+    "functions": ["preservative", "antimicrobial"],
+    "phRange": { "min": 3.0, "max": 10.0, "optimal": 6.0 },
+    "concentration": { "min": 0.5, "max": 1.0, "typical": 1.0, "unit": "% w/w" },
+    "solubility": "both",
+    "skinTypes": ["all"],
+    "concerns": ["preservation", "antimicrobial"],
+    "interactions": {
+      "compatible": ["ethylhexylglycerin", "caprylyl-glycol", "most-actives"],
+      "caution": [],
+      "note": "Most effective as part of a preservative blend. Phenoxyethanol (0.8%) + ethylhexylglycerin (0.2%) is the most common modern pairing — broad spectrum coverage with reduced individual concentrations."
+    },
+    "regulatory": {
+      "eu": "Permitted — max 1.0% (Annex V No. 29); not permitted in products for children ≤3 on nappy area per SCCS opinion",
+      "us": "Permitted — FDA food additive GRAS; preservative at ≤1%",
+      "jp": "Permitted — max 1.0%"
+    },
+    "evidence": "clinical",
+    "stability": "Broad pH stability. Effective across wide temperature range. Compatible with most preservative boosters.",
+    "description": "Glycol ether with antimicrobial activity primarily against gram-negative bacteria. Mechanism: disrupts bacterial cell membrane integrity and inhibits enzyme activity. Less effective alone against gram-positive bacteria, moulds, and yeasts — requires a preservative system (blend with caprylyl glycol, ethylhexylglycerin, or potassium sorbate for full spectrum coverage). Replaced parabens as the industry default preservative following EU paraben restrictions in 2014, despite having less clinical safety data than parabens. SCCS 2016 opinion confirmed safety at ≤1% with exception for nappy area in children ≤3.",
+    "keyStudy": "SCCS/1545/15 (2015) — SCCS opinion confirming safety of phenoxyethanol at 1% in cosmetic products."
+  },
+  {
+    "id": "allantoin",
+    "commonName": "Allantoin",
+    "inci": "Allantoin",
+    "cas": "97-59-6",
+    "category": "active",
+    "subcategory": "soothing",
+    "functions": ["soothing", "wound-healing", "keratolytic", "anti-irritant"],
+    "phRange": { "min": 4.0, "max": 8.0, "optimal": 6.0 },
+    "concentration": { "min": 0.1, "max": 2.0, "typical": 0.5, "unit": "% w/w" },
+    "solubility": "water",
+    "skinTypes": ["sensitive", "irritated", "all"],
+    "concerns": ["irritation", "redness", "wound-healing", "dry-skin"],
+    "interactions": {
+      "compatible": ["panthenol", "ceramides", "hyaluronic-acid", "niacinamide", "all-actives"],
+      "caution": [],
+      "note": "Excellent buffer ingredient for formulations containing potent actives (retinol, AHAs, vitamin C) — reduces irritation without compromising active efficacy."
+    },
+    "regulatory": {
+      "eu": "Permitted",
+      "us": "OTC drug — skin protectant at 0.5–2%",
+      "jp": "Permitted"
+    },
+    "evidence": "clinical",
+    "stability": "Stable in aqueous solutions at neutral-to-slightly-acidic pH. Slight instability at pH >9. Limited water solubility — dissolve at elevated temperature.",
+    "description": "Diureide of glyoxylic acid, naturally occurring in comfrey (Symphytum officinale), sugar beets, and wheat germ. Promotes cell proliferation (mitogenic effect on fibroblasts and keratinocytes), accelerates wound healing, and acts as a mild keratolytic by softening the protein matrix of the SC. Anti-irritant mechanism: binds and inactivates irritant compounds, reduces prostaglandin E2, and inhibits substance P release from sensory neurons. Consistently used in post-procedure and sensitive skin formulations.",
+    "keyStudy": "Araújo et al. (2010) — 1% allantoin formulation significantly reduced TEWL and improved barrier recovery vs vehicle in tape-stripped skin model."
+  },
+  {
+    "id": "centella-asiatica",
+    "commonName": "Centella Asiatica",
+    "inci": "Centella Asiatica Extract",
+    "cas": "84696-21-9",
+    "category": "active",
+    "subcategory": "botanical",
+    "functions": ["wound-healing", "collagen-synthesis", "anti-inflammatory", "soothing", "barrier-repair"],
+    "phRange": { "min": 4.5, "max": 7.0, "optimal": 5.5 },
+    "concentration": { "min": 0.1, "max": 5.0, "typical": 1.0, "unit": "% w/w" },
+    "solubility": "water",
+    "skinTypes": ["sensitive", "acne-prone", "aging", "all"],
+    "concerns": ["wound-healing", "redness", "post-inflammatory", "barrier-damage", "fine-lines"],
+    "interactions": {
+      "compatible": ["ceramides", "hyaluronic-acid", "niacinamide", "panthenol", "allantoin"],
+      "caution": [],
+      "note": "CICA (the K-beauty abbreviation) refers specifically to Centella formulations. Key actives are asiaticoside, madecassoside, asiatic acid, and madecassic acid — check supplier for standardised content."
+    },
+    "regulatory": {
+      "eu": "Permitted",
+      "us": "Permitted — botanical extract",
+      "jp": "Permitted — long history of use in Japanese dermatology"
+    },
+    "evidence": "clinical",
+    "stability": "Triterpenoids (asiaticoside, madecassoside) are relatively stable. Standardised extracts preferred for reproducible efficacy — raw extract potency varies significantly by source.",
+    "description": "Ayurvedic and TCM medicinal plant (gotu kola) with extensive wound-healing history. Key bioactive triterpenoids: asiaticoside (stimulates collagen and fibronectin synthesis via TGF-β1 pathway), madecassoside (potent anti-inflammatory — inhibits TNF-α, IL-1β, IL-6), asiatic acid (antioxidant, promotes dermal fibroblast proliferation). Reduces scar formation, promotes wound contraction, inhibits keloid fibroblast proliferation. Increasingly validated in clinical dermatology for post-procedure healing, rosacea, and atopic dermatitis.",
+    "keyStudy": "Bylka et al. (2014) — systematic review confirming asiaticoside and madecassoside clinical efficacy in wound healing, psoriasis, and scars."
+  },
+  {
+    "id": "kojic-acid",
+    "commonName": "Kojic Acid",
+    "inci": "Kojic Acid",
+    "cas": "501-30-4",
+    "category": "active",
+    "subcategory": "tyrosinase-inhibitor",
+    "functions": ["brightening", "tyrosinase-inhibition", "antioxidant"],
+    "phRange": { "min": 3.5, "max": 5.5, "optimal": 4.5 },
+    "concentration": { "min": 0.5, "max": 2.0, "typical": 1.0, "unit": "% w/w" },
+    "solubility": "water",
+    "skinTypes": ["all", "melasma", "PIH"],
+    "concerns": ["hyperpigmentation", "melasma", "dark-spots"],
+    "interactions": {
+      "compatible": ["vitamin-c", "niacinamide", "azelaic-acid", "glycolic-acid"],
+      "caution": ["iron-containing-water"],
+      "note": "Chelates iron ions — this is how it inhibits tyrosinase (copper-dependent enzyme), but it also reacts with iron impurities in water, causing discolouration (pink/brown). Use purified water and chelating agents (EDTA) in formulation."
+    },
+    "regulatory": {
+      "eu": "Restricted: max 1% in face cream/lotion (Annex V entry); SCCS review ongoing",
+      "us": "Permitted — cosmetic ingredient; no OTC drug status",
+      "jp": "Quasi-drug approved whitening agent at ≤1%"
+    },
+    "evidence": "clinical",
+    "stability": "Unstable in air and light — discolours formulas. Use kojic acid dipalmitate (more stable ester) as an alternative. Requires antioxidant protection and UV-stable packaging.",
+    "description": "Fungal metabolite produced by Aspergillus oryzae during fermentation of sake and soy sauce. Chelates copper in the active site of tyrosinase, inhibiting melanin synthesis. Slower onset than hydroquinone but without the cytotoxicity risk. Contact sensitisation has been reported — patch testing advised, particularly in atopic patients. Kojic acid dipalmitate is the lipophilic ester form: more stable, less irritating, better skin penetration, but requires esterase activity for conversion to active kojic acid.",
+    "keyStudy": "Lim (1999) — 0.75% kojic acid + 2.5% glycolic acid significantly reduced melasma vs glycolic acid alone at 12 weeks."
+  },
+  {
+    "id": "sodium-pca",
+    "commonName": "Sodium PCA",
+    "inci": "Sodium PCA",
+    "cas": "28874-51-3",
+    "category": "humectant",
+    "subcategory": "NMF",
+    "functions": ["humectant", "skin-conditioning", "NMF-component"],
+    "phRange": { "min": 4.0, "max": 8.0, "optimal": 5.5 },
+    "concentration": { "min": 0.5, "max": 5.0, "typical": 2.0, "unit": "% w/w" },
+    "solubility": "water",
+    "skinTypes": ["dry", "dehydrated", "all"],
+    "concerns": ["dehydration", "dry-skin"],
+    "interactions": {
+      "compatible": ["glycerin", "hyaluronic-acid", "urea", "all-ingredients"],
+      "caution": [],
+      "note": "The sodium salt of pyrrolidone carboxylic acid — a naturally occurring NMF component derived from glutamic acid in the skin. Unlike synthetic humectants, it is endogenous and highly skin-compatible."
+    },
+    "regulatory": {
+      "eu": "Permitted",
+      "us": "Permitted",
+      "jp": "Permitted"
+    },
+    "evidence": "in_vivo",
+    "stability": "Highly stable in aqueous formulations. Hygroscopic — absorbs atmospheric moisture similarly to glycerin.",
+    "description": "Sodium salt of pyrrolidone carboxylic acid (PCA). One of the major components of the skin's natural moisturising factor (NMF) — the complex mixture of water-soluble compounds in the stratum corneum that regulates SC water content and flexibility. NMF accounts for ~20–30% of SC dry weight and is produced by filaggrin degradation. Sodium PCA is particularly hygroscopic — absorbs moisture from the environment with high efficiency. Topical application replenishes NMF lost through ageing, surfactant exposure, and environmental damage.",
+    "keyStudy": "Verdier-Sévrain & Bonté (2007) — review confirming NMF components including Sodium PCA critical for SC hydration homeostasis."
+  },
+  {
+    "id": "betaine",
+    "commonName": "Betaine",
+    "inci": "Betaine",
+    "cas": "107-43-7",
+    "category": "humectant",
+    "subcategory": "osmolyte",
+    "functions": ["humectant", "osmoprotectant", "anti-irritant", "skin-conditioning"],
+    "phRange": { "min": 4.0, "max": 9.0, "optimal": 6.0 },
+    "concentration": { "min": 1, "max": 5, "typical": 3, "unit": "% w/w" },
+    "solubility": "water",
+    "skinTypes": ["all", "sensitive"],
+    "concerns": ["dehydration", "irritation", "sensitivity"],
+    "interactions": {
+      "compatible": ["all-ingredients"],
+      "caution": [],
+      "note": "Naturally derived from sugar beets — appeals to consumers seeking naturally-sourced ingredients. Also functions as a formulary rheology modifier in high-concentration salt systems."
+    },
+    "regulatory": {
+      "eu": "Permitted",
+      "us": "Permitted — GRAS as food ingredient",
+      "jp": "Permitted"
+    },
+    "evidence": "in_vivo",
+    "stability": "Excellent stability across wide pH and temperature ranges. Hygroscopic solid in pure form.",
+    "description": "Trimethylglycine — an osmolyte naturally occurring in many organisms as protection against osmotic stress and temperature extremes. In skin, acts as a compatible solute that stabilises proteins and cell membranes under osmotic perturbation. Potent humectant with hygroscopic capacity comparable to glycerin. Anti-irritant properties demonstrated in surfactant-irritated skin models — reduces TEWL increase and erythema caused by SLS. Improves sensory aesthetics of high-salt formulations by reducing tackiness.",
+    "keyStudy": "Rodrigues (2012) — betaine-containing formulation significantly reduced surfactant-induced irritation and improved barrier recovery vs non-betaine control."
+  },
+  {
+    "id": "titanium-dioxide",
+    "commonName": "Titanium Dioxide",
+    "inci": "Titanium Dioxide",
+    "cas": "13463-67-7",
+    "category": "SPF",
+    "subcategory": "mineral-filter",
+    "functions": ["UV-filter", "UVB-primary", "opacity", "opacifying"],
+    "phRange": { "min": 5.0, "max": 8.0, "optimal": 7.0 },
+    "concentration": { "min": 2, "max": 25, "typical": 8, "unit": "% w/w" },
+    "solubility": "oil",
+    "skinTypes": ["all", "sensitive"],
+    "concerns": ["UV-protection", "UVB-protection"],
+    "interactions": {
+      "compatible": ["zinc-oxide", "antioxidants", "niacinamide"],
+      "caution": ["ascorbic-acid"],
+      "note": "TiO2 is primarily a UVB filter (290–340nm) with limited UVA coverage — combine with ZnO or chemical UVA filters for true broad-spectrum protection. TiO2 is a stronger photocatalyst than ZnO — surface coating (alumina, silica, dimethicone) is essential to prevent formula degradation."
+    },
+    "regulatory": {
+      "eu": "UV filter — permitted at ≤25%; nano form requires labelling as [nano]; reclassification under REACH ongoing",
+      "us": "OTC Category I (GRASE) sunscreen active at 2–25%",
+      "jp": "Permitted UV filter at ≤25%"
+    },
+    "evidence": "clinical",
+    "stability": "Photostable. Strong photocatalytic activity without surface treatment — must use coated grades in cosmetic formulations to prevent degradation of other ingredients.",
+    "description": "Inorganic UV filter with high refractive index (2.6 — vs 1.9 for ZnO), creating stronger white cast at equivalent concentrations. Primarily absorbs and scatters UVB radiation (290–340nm) — UVA coverage is limited (some attenuation up to 380nm). Predominantly used in combination with ZnO for genuine broad-spectrum coverage. Rutile crystal form preferred over anatase in cosmetics — lower photocatalytic activity and higher photostability. Food-grade TiO2 (E171) is a different specification from cosmetic-grade — not interchangeable.",
+    "keyStudy": "Mitchnick et al. (1999) — coated microfine TiO2 provided SPF 30+ in a light, cosmetically elegant formulation vs uncoated TiO2 which caused formula degradation."
+  }
+]
