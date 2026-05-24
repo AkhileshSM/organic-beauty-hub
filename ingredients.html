@@ -490,22 +490,22 @@
      <section class="search-section" aria-label="Search and filter ingredients">
        <div class="container">
          <div class="search-row">
-           <div class="search-bar" role="search">
-             <label for="search-input" class="sr-only">Search ingredients by name, INCI, function, or concern</label>
-             <div class="search-bar" style="display:flex; align-items:center; gap:var(--space-3);">
-               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="flex-shrink:0; opacity:0.45;">
-                 <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.5"/>
-                 <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-               </svg>
-               <input
-                 type="search"
-                 id="search-input"
-                 placeholder="Search by name, INCI, function, concern… Try: 'vitamin C', 'pH 5'"
-                 autocomplete="off"
-                 spellcheck="false"
-               >
-             </div>
-           </div>
+            <div class="search-bar-wrapper" role="search">
+              <label for="search-input" class="sr-only">Search ingredients by name, INCI, function, or concern</label>
+              <div class="search-bar" style="display:flex; align-items:center; gap:var(--space-3);">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="flex-shrink:0; opacity:0.45;">
+                  <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <input
+                  type="search"
+                  id="search-input"
+                  placeholder="Search by name, INCI, function, concern… Try: 'vitamin C', 'pH 5'"
+                  autocomplete="off"
+                  spellcheck="false"
+                >
+              </div>
+            </div>
            <p class="result-count" aria-live="polite" aria-atomic="true">
              <span id="result-count">Loading…</span>
            </p>
@@ -521,6 +521,14 @@
             <button class="filter-btn" data-filter="category" data-value="antioxidant" aria-pressed="false">Antioxidants</button>
             <button class="filter-btn" data-filter="category" data-value="preservative" aria-pressed="false">Preservatives</button>
             <button class="filter-btn" data-filter="category" data-value="SPF" aria-pressed="false">UV Filters</button>
+          </div>
+
+          <div class="filter-sep" aria-hidden="true"></div>
+          <span class="filter-label">Solubility</span>
+          <div class="filter-group">
+            <button class="filter-btn filter-btn--active" data-filter="solubility" data-value="all" aria-pressed="true">All</button>
+            <button class="filter-btn" data-filter="solubility" data-value="water" aria-pressed="false">Water</button>
+            <button class="filter-btn" data-filter="solubility" data-value="oil" aria-pressed="false">Oil</button>
           </div>
 
           <div class="filter-sep" aria-hidden="true"></div>
@@ -569,7 +577,7 @@
       >×</button>
       <div id="modal-body" aria-live="polite"></div>
     </div>
-  </main>
+  </div>
 
   <!-- Back to top button -->
   <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>

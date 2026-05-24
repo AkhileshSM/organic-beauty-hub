@@ -243,12 +243,13 @@
   <nav class="chapter-nav" aria-label="Chapter navigation">
     <div class="container">
       <ul class="chapter-nav__list" role="list">
-        <li><a href="#anatomy"     class="chapter-nav__link">01 Skin Anatomy</a></li>
-        <li><a href="#barrier"     class="chapter-nav__link">02 Barrier Function</a></li>
-        <li><a href="#tewl"        class="chapter-nav__link">03 TEWL</a></li>
-        <li><a href="#microbiome"  class="chapter-nav__link">04 Microbiome</a></li>
-        <li><a href="#photoageing" class="chapter-nav__link">05 Photoageing</a></li>
-        <li><a href="#inflammation" class="chapter-nav__link">06 Inflammation</a></li>
+        <li><a href="#anatomy"      class="chapter-nav__link">01 Skin Anatomy</a></li>
+        <li><a href="#barrier"      class="chapter-nav__link">02 Barrier Function</a></li>
+        <li><a href="#tewl"         class="chapter-nav__link">03 TEWL</a></li>
+        <li><a href="#microbiome"   class="chapter-nav__link">04 Microbiome</a></li>
+        <li><a href="#photoageing"  class="chapter-nav__link">05 Photoageing</a></li>
+        <li><a href="#fitzpatrick"  class="chapter-nav__link">06 Fitzpatrick Types</a></li>
+        <li><a href="#inflammation" class="chapter-nav__link">07 Inflammation</a></li>
       </ul>
     </div>
   </nav>
@@ -367,6 +368,27 @@
               </div>
             </div>
 
+            <!-- TEWL Simulator -->
+            <div class="callout callout--science" id="tewl-sim-wrap" style="padding: var(--space-5);">
+              <p class="callout__title">🔬 TEWL Simulator — drag to see barrier status</p>
+              <div style="margin-bottom: var(--space-4);">
+                <div style="display:flex; justify-content:space-between; margin-bottom: var(--space-2);">
+                  <label for="tewl-slider" style="font-size:var(--text-sm); color:var(--text-secondary); font-weight:500;">TEWL value</label>
+                  <span id="tewl-value-display" style="font-family:var(--font-display); font-size:var(--text-xl); color:var(--accent);">8 g/m²/h</span>
+                </div>
+                <input type="range" id="tewl-slider" min="1" max="60" value="8" step="1"
+                  style="width:100%; accent-color:var(--accent); cursor:pointer;">
+                <div style="display:flex; justify-content:space-between; font-size:var(--text-xs); color:var(--text-muted); margin-top:4px;">
+                  <span>1 g/m²/h</span><span>60 g/m²/h</span>
+                </div>
+              </div>
+              <div id="tewl-sim-result" style="border-radius:var(--radius-md); padding:var(--space-4); transition:background 0.3s;">
+                <p id="tewl-sim-badge" style="font-size:var(--text-xs); font-weight:600; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:var(--space-2);">Normal</p>
+                <p id="tewl-sim-desc" style="font-size:var(--text-sm); color:var(--text-secondary); line-height:1.75;"></p>
+                <p id="tewl-sim-rec" style="font-size:var(--text-xs); color:var(--text-muted); margin-top:var(--space-2); font-style:italic;"></p>
+              </div>
+            </div>
+
             <h4>Factors that increase TEWL</h4>
             <ul>
               <li>Surfactant exposure (SLS, SLES) — disrupts lipid bilayer organisation</li>
@@ -464,13 +486,118 @@
           </div>
         </article>
 
-        <!-- Ch 6 -->
-        <article class="chapter" id="inflammation" aria-labelledby="ch6-title">
+        <!-- Ch 6 — Fitzpatrick Table -->
+        <article class="chapter" id="fitzpatrick" aria-labelledby="ch6-title">
           <div class="chapter__label">
             <span class="chapter__number">06</span>
+            <span class="section-label">Reference</span>
+          </div>
+          <h2 class="chapter__title" id="ch6-title">Fitzpatrick <em>Skin Types</em></h2>
+          <div class="chapter__body">
+            <p>The Fitzpatrick phototype scale, developed by dermatologist Thomas B. Fitzpatrick in 1975, classifies skin by its response to UV radiation. It is the foundational tool for SPF testing protocols, predicting PIH risk, and calibrating retinoid / AHA concentration recommendations.</p>
+
+            <div class="fitz-table-wrap" role="region" aria-label="Fitzpatrick Skin Type Table">
+              <table style="width:100%; border-collapse:collapse; font-size:var(--text-sm);">
+                <thead>
+                  <tr style="background:var(--bg-subtle);">
+                    <th style="padding:var(--space-3) var(--space-4); text-align:left; font-size:var(--text-xs); font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); border-bottom:2px solid var(--border);">Type</th>
+                    <th style="padding:var(--space-3) var(--space-4); text-align:left; font-size:var(--text-xs); font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); border-bottom:2px solid var(--border);">Skin Tone</th>
+                    <th style="padding:var(--space-3) var(--space-4); text-align:left; font-size:var(--text-xs); font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); border-bottom:2px solid var(--border);">UV Response</th>
+                    <th style="padding:var(--space-3) var(--space-4); text-align:left; font-size:var(--text-xs); font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); border-bottom:2px solid var(--border);">PIH Risk</th>
+                    <th style="padding:var(--space-3) var(--space-4); text-align:left; font-size:var(--text-xs); font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); border-bottom:2px solid var(--border);">Formulation Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom:1px solid var(--border);">
+                    <td style="padding:var(--space-3) var(--space-4); vertical-align:top;">
+                      <span style="display:inline-flex; align-items:center; gap:var(--space-2);">
+                        <span style="width:20px;height:20px;border-radius:50%;background:#F5DEB3;border:1px solid var(--border);flex-shrink:0;"></span>
+                        <strong>I</strong>
+                      </span>
+                    </td>
+                    <td style="padding:var(--space-3) var(--space-4); color:var(--text-secondary); vertical-align:top;">Very pale, ivory</td>
+                    <td style="padding:var(--space-3) var(--space-4); color:var(--text-secondary); vertical-align:top;">Always burns, never tans</td>
+                    <td style="padding:var(--space-3) var(--space-4); vertical-align:top;"><span style="color:#c0392b; font-weight:600;">Low</span></td>
+                    <td style="padding:var(--space-3) var(--space-4); color:var(--text-secondary); vertical-align:top;">Prioritise SPF 50+; retinoids at low starting dose; high skin cancer vigilance</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid var(--border); background:var(--bg-subtle);">
+                    <td style="padding:var(--space-3) var(--space-4); vertical-align:top;">
+                      <span style="display:inline-flex; align-items:center; gap:var(--space-2);">
+                        <span style="width:20px;height:20px;border-radius:50%;background:#FAEBD7;border:1px solid var(--border);flex-shrink:0;"></span>
+                        <strong>II</strong>
+                      </span>
+                    </td>
+                    <td style="padding:var(--space-3) var(--space-4); color:var(--text-secondary); vertical-align:top;">Fair, beige</td>
+                    <td style="padding:var(--space-3) var(--space-4); color:var(--text-secondary); vertical-align:top;">Usually burns, tans minimally</td>
+                    <td style="padding:var(--space-3) var(--space-4); vertical-align:top;"><span style="color:#c0392b; font-weight:600;">Low–Moderate</span></td>
+                    <td style="padding:var(--space-3) var(--space-4); color:var(--text-secondary); vertical-align:top;">SPF 30–50+; standard AHA concentrations (≤10%); monitor for erythema</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid var(--border);">
+                    <td style="padding:var(--space-3) var(--space-4); vertical-align:top;">
+                      <span style="display:inline-flex; align-items:center; gap:var(--space-2);">
+                        <span style="width:20px;height:20px;border-radius:50%;background:#D2B48C;border:1px solid var(--border);flex-shrink:0;"></span>
+                        <strong>III</strong>
+                      </span>
+                    </td>
+                    <td style="padding:var(--space-3) var(--space-4); color:var(--text-secondary); vertical-align:top;">Medium beige, olive</td>
+                    <td style="padding:var(--space-3) var(--space-4); color:var(--text-secondary); vertical-align:top;">Burns moderately, tans gradually</td>
+                    <td style="padding:var(--space-3) var(--space-4); vertical-align:top;"><span style="color:#e67e22; font-weight:600;">Moderate</span></td>
+                    <td style="padding:var(--space-3) var(--space-4); color:var(--text-secondary); vertical-align:top;">SPF 30+; niacinamide pre- and post-treatment; titrate retinoids carefully</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid var(--border); background:var(--bg-subtle);">
+                    <td style="padding:var(--space-3) var(--space-4); vertical-align:top;">
+                      <span style="display:inline-flex; align-items:center; gap:var(--space-2);">
+                        <span style="width:20px;height:20px;border-radius:50%;background:#C68642;border:1px solid var(--border);flex-shrink:0;"></span>
+                        <strong>IV</strong>
+                      </span>
+                    </td>
+                    <td style="padding:var(--space-3) var(--space-4); color:var(--text-secondary); vertical-align:top;">Light brown</td>
+                    <td style="padding:var(--space-3) var(--space-4); color:var(--text-secondary); vertical-align:top;">Burns minimally, tans well</td>
+                    <td style="padding:var(--space-3) var(--space-4); vertical-align:top;"><span style="color:#d35400; font-weight:600;">High</span></td>
+                    <td style="padding:var(--space-3) var(--space-4); color:var(--text-secondary); vertical-align:top;">Avoid hydroquinone at >2%; use tranexamic acid / kojic acid / niacinamide instead; SPF 30+ mandatory</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid var(--border);">
+                    <td style="padding:var(--space-3) var(--space-4); vertical-align:top;">
+                      <span style="display:inline-flex; align-items:center; gap:var(--space-2);">
+                        <span style="width:20px;height:20px;border-radius:50%;background:#8D5524;border:1px solid var(--border);flex-shrink:0;"></span>
+                        <strong>V</strong>
+                      </span>
+                    </td>
+                    <td style="padding:var(--space-3) var(--space-4); color:var(--text-secondary); vertical-align:top;">Brown</td>
+                    <td style="padding:var(--space-3) var(--space-4); color:var(--text-secondary); vertical-align:top;">Rarely burns, tans profusely</td>
+                    <td style="padding:var(--space-3) var(--space-4); vertical-align:top;"><span style="color:#a04000; font-weight:600;">Very High</span></td>
+                    <td style="padding:var(--space-3) var(--space-4); color:var(--text-secondary); vertical-align:top;">Avoid aggressive peels; prefer enzyme exfoliants; vitamin C (L-AA) at ≤10%; patch-test always</td>
+                  </tr>
+                  <tr style="">
+                    <td style="padding:var(--space-3) var(--space-4); vertical-align:top;">
+                      <span style="display:inline-flex; align-items:center; gap:var(--space-2);">
+                        <span style="width:20px;height:20px;border-radius:50%;background:#4A2912;border:1px solid var(--border);flex-shrink:0;"></span>
+                        <strong>VI</strong>
+                      </span>
+                    </td>
+                    <td style="padding:var(--space-3) var(--space-4); color:var(--text-secondary); vertical-align:top;">Dark brown / black</td>
+                    <td style="padding:var(--space-3) var(--space-4); color:var(--text-secondary); vertical-align:top;">Never burns</td>
+                    <td style="padding:var(--space-3) var(--space-4); vertical-align:top;"><span style="color:#7b241c; font-weight:600;">Highest</span></td>
+                    <td style="padding:var(--space-3) var(--space-4); color:var(--text-secondary); vertical-align:top;">No hydroquinone; mineral SPF preferred (no white cast with micronised ZnO/TiO₂); keloid vigilance post-procedure</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="callout callout--clinic">
+              <p class="callout__title">Clinical note</p>
+              The Fitzpatrick scale correlates with, but does not equate to, race or ethnicity. Dermatological research now supplements it with the Individual Typology Angle (ITA°) measured by spectrophotometry for more objective skin tone quantification in clinical trial cohorts.
+            </div>
+          </div>
+        </article>
+
+        <!-- Ch 7 -->
+        <article class="chapter" id="inflammation" aria-labelledby="ch7-title">
+          <div class="chapter__label">
+            <span class="chapter__number">07</span>
             <span class="section-label">Immunology</span>
           </div>
-          <h2 class="chapter__title" id="ch6-title"><em>Inflammation</em> &amp; Skin</h2>
+          <h2 class="chapter__title" id="ch7-title"><em>Inflammation</em> &amp; Skin</h2>
           <div class="chapter__body">
             <p>Cutaneous inflammation is the immune system's response to perceived threat — infection, damage, allergen, or irritant. It underlies acne, rosacea, atopic dermatitis, psoriasis, and post-inflammatory hyperpigmentation (PIH). Understanding the cascade is essential for evidence-based ingredient selection.</p>
 
@@ -510,12 +637,13 @@
           <li><a href="#tewl"         class="sidebar__link"><span class="sidebar__num">03</span>TEWL</a></li>
           <li><a href="#microbiome"   class="sidebar__link"><span class="sidebar__num">04</span>Microbiome</a></li>
           <li><a href="#photoageing"  class="sidebar__link"><span class="sidebar__num">05</span>Photoageing</a></li>
-          <li><a href="#inflammation" class="sidebar__link"><span class="sidebar__num">06</span>Inflammation</a></li>
+          <li><a href="#fitzpatrick"  class="sidebar__link"><span class="sidebar__num">06</span>Fitzpatrick Types</a></li>
+          <li><a href="#inflammation" class="sidebar__link"><span class="sidebar__num">07</span>Inflammation</a></li>
         </ul>
         <div style="margin-top:var(--space-8);padding:var(--space-5);background:var(--bg-subtle);border-radius:var(--radius-lg);border:1px solid var(--border);">
           <p class="sidebar__title">Related</p>
           <ul class="sidebar__list" role="list">
-            <li><a href="ingredients.html" class="sidebar__link" style="font-size:var(--text-xs);">→ Ceramide NP profile</a></li>
+            <li><a href="ingredients.html#ceramide-np" class="sidebar__link" style="font-size:var(--text-xs);">→ Ceramide NP profile</a></li>
             <li><a href="formulation.html#preservation" class="sidebar__link" style="font-size:var(--text-xs);">→ Preservation science</a></li>
             <li><a href="glossary.html#tewl" class="sidebar__link" style="font-size:var(--text-xs);">→ TEWL in glossary</a></li>
           </ul>
@@ -601,6 +729,75 @@
   backToTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+</script>
+
+<script>
+/* ── TEWL Simulator ─────────────────────────────────────────────────────── */
+(function () {
+  const slider   = document.getElementById('tewl-slider');
+  const valDisp  = document.getElementById('tewl-value-display');
+  const result   = document.getElementById('tewl-sim-result');
+  const badge    = document.getElementById('tewl-sim-badge');
+  const descEl   = document.getElementById('tewl-sim-desc');
+  const recEl    = document.getElementById('tewl-sim-rec');
+
+  const states = [
+    {
+      max: 10,
+      label: '✅ Normal — Intact Barrier',
+      color: 'rgba(125,155,118,0.12)',
+      badgeColor: '#2e7d32',
+      desc: 'Barrier integrity is healthy. SC lipid lamellae are well-organised, NMF levels are adequate, and TEWL is within the physiological reference range for facial skin.',
+      rec: 'Recommended: lightweight humectant serums, gentle cleansers, optional lipid support. No occlusive therapy required.'
+    },
+    {
+      max: 20,
+      label: '🟡 Mild Compromise',
+      color: 'rgba(241,196,15,0.10)',
+      badgeColor: '#b7950b',
+      desc: 'Early signs of barrier disruption. May result from surfactant exposure, low humidity, or over-cleansing. SC lipid organisation is suboptimal.',
+      rec: 'Recommended: ceramide + cholesterol + FFA replenishment (1:1:1 molar ratio), panthenol, limit cleansing to once daily.'
+    },
+    {
+      max: 30,
+      label: '🟠 Moderate Disruption',
+      color: 'rgba(230,126,34,0.10)',
+      badgeColor: '#d35400',
+      desc: 'Significant SC lipid depletion likely. May correspond to mild eczema flare, retinoid adaptation phase, or aggressive exfoliation. Skin is visibly dry and may show initial erythema.',
+      rec: 'Recommended: occlusive layer (squalane, dimethicone), ceramide-rich cream, avoid actives (AHAs, retinoids, vitamin C) until recovery.'
+    },
+    {
+      max: 45,
+      label: '🔴 Significant Disruption',
+      color: 'rgba(192,57,43,0.08)',
+      badgeColor: '#c0392b',
+      desc: 'Barrier is severely compromised — typically consistent with active atopic dermatitis, psoriasis, or post-procedure skin. Tight junctions are likely dysfunctional. Allergen penetration risk is high.',
+      rec: 'Recommended: prescription-grade barrier creams, colloidal oat + ceramide formulations, petrolatum as overnight occlusant. Dermatologist referral advised.'
+    },
+    {
+      max: 60,
+      label: '🚨 Severe Barrier Failure',
+      color: 'rgba(155,0,0,0.08)',
+      badgeColor: '#922b21',
+      desc: 'TEWL values in this range are characteristic of severe eczema, burns, ichthyosis, or Netherton syndrome. Comparable to values measured on denuded skin. Systemic fluid loss becomes a clinical concern at these extremes.',
+      rec: 'Medical management required. Cosmetic interventions are adjunctive only. Wet-wrap therapy and medical-grade emollients are the standard of care.'
+    }
+  ];
+
+  function update() {
+    const v = parseInt(slider.value, 10);
+    valDisp.textContent = v + ' g/m²/h';
+    const s = states.find(st => v <= st.max) || states[states.length - 1];
+    result.style.background = s.color;
+    badge.textContent = s.label;
+    badge.style.color = s.badgeColor;
+    descEl.textContent = s.desc;
+    recEl.textContent = s.rec;
+  }
+
+  slider.addEventListener('input', update);
+  update();
+})();
 </script>
 </body>
 </html>

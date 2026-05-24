@@ -32,6 +32,7 @@
       allIngredients = data;
       initFuse();
       renderGrid(allIngredients);
+      checkHashRoute();
     })
     .catch(err => {
       resultsGrid.innerHTML = `<p class="error-state">Unable to load ingredient data. ${err.message}</p>`;
@@ -167,6 +168,9 @@
     const i = allIngredients.find(x => x.id === id);
     if (!i) return;
     selectedId = id;
+    if (window.location.hash !== '#' + id) {
+      window.location.hash = id;
+    }
 
     const compatible  = (i.interactions.compatible || []).join(', ') || '—';
     const caution     = (i.interactions.caution || []).join(', ')    || 'None noted';
@@ -284,6 +288,9 @@
     modal.removeAttribute('aria-modal');
     document.body.style.overflow = '';
     selectedId = null;
+    if (window.location.hash) {
+      history.pushState("", document.title, window.location.pathname + window.location.search);
+    }
   }
 
   /* ── Event listeners ─────────────────────────────────────── */
@@ -294,6 +301,7 @@
   });
 
   modalClose.addEventListener('click', closeModal);
+  window.addEventListener('hashchange', checkHashRoute);
 
   modal.addEventListener('click', e => {
     if (e.target === modal) closeModal();
@@ -380,6 +388,23 @@
 
   function formatFunction(fn) {
     return fn.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+  }
+
+  function checkHashRoute() {
+    const hash = window.location.hash.substring(1);
+    if (hash && hash !== selectedId) {
+      const i = allIngredients.find(x => x.id === hash);
+      if (i) {
+        openModal(i.id);
+        setTimeout(() => {
+          const cardEl = document.querySelector(`[data-id="${i.id}"]`);
+          if (cardEl) {
+            cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            cardEl.focus();
+          }
+        }, 100);
+      }
+    }
   }
 
 })();

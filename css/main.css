@@ -12,21 +12,21 @@
   --color-cream:        #F7F3ED;
   --color-cream-dark:   #EDE6DA;
   --color-stone:        #C9B99A;
-  --color-stone-dark:   #A89070;
+  --color-stone-dark:   #8F7553;
   --color-terracotta:   #C4714A;
   --color-terracotta-dk:#9E5636;
   --color-sage:         #7D9B76;
-  --color-sage-dark:    #5A7554;
+  --color-sage-dark:    #4A5E44;
   --color-olive:        #4A5C3A;
   --color-bark:         #3D2B1F;
-  --color-bark-light:   #6B4C38;
+  --color-bark-light:   #4A3527;
   --color-petal:        #E8C4A0;
   --color-moss:         #8FA67A;
 
   /* New accent colors */
-  --color-blue-accent:  #5B7BA5;
-  --color-blue-accent-dark: #3E5A7D;
-  --color-accent-stronger: #C45A41;
+  --color-blue-accent:  #3A5E8C;
+  --color-blue-accent-dark: #2B4566;
+  --color-accent-stronger: #B83D23;
 
   /* Semantic */
   --bg:                 var(--color-cream);
@@ -34,10 +34,10 @@
   --bg-subtle:          var(--color-cream-dark);
   --text-primary:       var(--color-bark);
   --text-secondary:     var(--color-bark-light);
-  --text-muted:         #956E4C;
+  --text-muted:         #735235;
   --text-on-dark:       var(--color-cream);
-  --border:             rgba(169, 144, 112, 0.25);
-  --border-strong:      rgba(169, 144, 112, 0.5);
+  --border:             rgba(122, 99, 71, 0.38);
+  --border-strong:      rgba(122, 99, 71, 0.65);
   --accent:             var(--color-terracotta);
   --accent-hover:       var(--color-terracotta-dk);
   --accent-green:       var(--color-sage);
@@ -108,7 +108,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--text-primary);
   background-color: var(--bg);
   line-height: 1.7;
@@ -634,7 +634,7 @@ p + p { margin-top: var(--space-4); }
   outline: none;
   font-family: var(--font-body);
   font-size: var(--text-base);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--text-primary);
 }
 
@@ -754,8 +754,8 @@ p + p { margin-top: var(--space-4); }
 
 .footer__tagline {
   font-size: var(--text-sm);
-  color: rgba(247, 243, 237, 0.5);
-  font-weight: 300;
+  color: rgba(247, 243, 237, 0.8);
+  font-weight: 400;
 }
 
 .footer__grid {
@@ -786,8 +786,8 @@ p + p { margin-top: var(--space-4); }
 
 .footer__link {
   font-size: var(--text-sm);
-  font-weight: 300;
-  color: rgba(247, 243, 237, 0.6);
+  font-weight: 400;
+  color: rgba(247, 243, 237, 0.75);
   transition: color var(--transition-fast);
 }
 
@@ -800,7 +800,7 @@ p + p { margin-top: var(--space-4); }
   align-items: center;
   justify-content: space-between;
   font-size: var(--text-xs);
-  color: rgba(247, 243, 237, 0.35);
+  color: rgba(247, 243, 237, 0.6);
   letter-spacing: 0.04em;
 }
 

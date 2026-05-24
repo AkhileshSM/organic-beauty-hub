@@ -458,11 +458,52 @@
 
             <h4>Required HLB (rHLB)</h4>
             <p>Every oil phase has a required HLB — the emulsifier HLB that produces the most stable emulsion for that oil. When blending emulsifiers, the blend HLB is calculated as the weighted average:</p>
-            <div class="callout callout--formula">
-               <p class="callout__title">HLB blend formula</p>
-               <code>HLB blend = (% emulsifier A × HLB A + % emulsifier B × HLB B) / 100</code>
-               <p style="margin-top:var(--space-3);">Example: 60% Span 80 (HLB 4.3) + 40% Tween 80 (HLB 15) = <strong>HLB 8.6</strong> — suitable for a light W/O emulsion.</p>
-             </div>
+
+            <!-- Interactive HLB Blend Calculator -->
+            <div class="callout callout--formula" id="hlb-calc-wrap">
+              <p class="callout__title">⚗ Interactive HLB Blend Calculator</p>
+              <div style="display: flex; gap: var(--space-3); margin-bottom: var(--space-4);">
+                <button id="calc-mode-blend" class="filter-btn filter-btn--active" style="font-size:var(--text-xs);">Calculate Blend HLB</button>
+                <button id="calc-mode-ratio" class="filter-btn" style="font-size:var(--text-xs);">Find Required Ratio</button>
+              </div>
+
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: var(--space-3); margin-bottom: var(--space-4);">
+                <div>
+                  <label for="calc-name-a" style="font-size: var(--text-xs); color: var(--text-muted); display:block; margin-bottom:4px; font-weight:500;">Surfactant A name</label>
+                  <input type="text" id="calc-name-a" value="Span 80" style="width:100%; padding:7px 10px; border:1px solid var(--border-strong); border-radius:var(--radius-md); background:var(--bg-card); font-family:var(--font-body); font-size:var(--text-sm); color:var(--text-primary);">
+                </div>
+                <div>
+                  <label for="calc-hlb-a" style="font-size: var(--text-xs); color: var(--text-muted); display:block; margin-bottom:4px; font-weight:500;">HLB value</label>
+                  <input type="number" id="calc-hlb-a" value="4.3" step="0.1" min="0" max="20" style="width:100%; padding:7px 10px; border:1px solid var(--border-strong); border-radius:var(--radius-md); background:var(--bg-card); font-family:var(--font-body); font-size:var(--text-sm); color:var(--text-primary);">
+                </div>
+                <div id="calc-pct-a-wrap">
+                  <label for="calc-pct-a" style="font-size: var(--text-xs); color: var(--text-muted); display:block; margin-bottom:4px; font-weight:500;">% of Surfactant A</label>
+                  <input type="number" id="calc-pct-a" value="60" step="1" min="0" max="100" style="width:100%; padding:7px 10px; border:1px solid var(--border-strong); border-radius:var(--radius-md); background:var(--bg-card); font-family:var(--font-body); font-size:var(--text-sm); color:var(--text-primary);">
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: var(--space-3); margin-bottom: var(--space-5);">
+                <div>
+                  <label for="calc-name-b" style="font-size: var(--text-xs); color: var(--text-muted); display:block; margin-bottom:4px; font-weight:500;">Surfactant B name</label>
+                  <input type="text" id="calc-name-b" value="Tween 80" style="width:100%; padding:7px 10px; border:1px solid var(--border-strong); border-radius:var(--radius-md); background:var(--bg-card); font-family:var(--font-body); font-size:var(--text-sm); color:var(--text-primary);">
+                </div>
+                <div>
+                  <label for="calc-hlb-b" style="font-size: var(--text-xs); color: var(--text-muted); display:block; margin-bottom:4px; font-weight:500;">HLB value</label>
+                  <input type="number" id="calc-hlb-b" value="15.0" step="0.1" min="0" max="20" style="width:100%; padding:7px 10px; border:1px solid var(--border-strong); border-radius:var(--radius-md); background:var(--bg-card); font-family:var(--font-body); font-size:var(--text-sm); color:var(--text-primary);">
+                </div>
+                <div id="calc-target-wrap" style="display:none;">
+                  <label for="calc-target" style="font-size: var(--text-xs); color: var(--text-muted); display:block; margin-bottom:4px; font-weight:500;">Target rHLB</label>
+                  <input type="number" id="calc-target" value="10.0" step="0.1" min="0" max="20" style="width:100%; padding:7px 10px; border:1px solid var(--border-strong); border-radius:var(--radius-md); background:var(--bg-card); font-family:var(--font-body); font-size:var(--text-sm); color:var(--text-primary);">
+                </div>
+              </div>
+
+              <div id="hlb-calc-result" style="background: rgba(61,43,31,0.06); border-radius: var(--radius-md); padding: var(--space-4); border-left: 3px solid var(--accent);">
+                <p style="font-size:var(--text-xs); color:var(--text-muted); font-weight:500; letter-spacing:0.1em; text-transform:uppercase; margin-bottom: var(--space-2);">Result</p>
+                <p id="hlb-calc-output" style="font-size: var(--text-2xl); font-family: var(--font-display); font-weight: 300; color: var(--accent);">HLB blend = <strong>8.6</strong></p>
+                <p id="hlb-calc-detail" style="font-size: var(--text-sm); color: var(--text-secondary); margin-top: var(--space-2);">60% Span 80 (HLB 4.3) + 40% Tween 80 (HLB 15) — suitable for a light <strong>W/O emulsion</strong>.</p>
+              </div>
+            </div>
+
             <p>Blending high- and low-HLB emulsifiers always outperforms a single emulsifier at the equivalent HLB — the synergistic packing at the oil-water interface is superior.</p>
           </div>
         </article>
@@ -779,6 +820,94 @@
 
   hlbSlider.addEventListener('input', updateHLB);
   updateHLB();
+</script>
+
+<script>
+/* ── HLB Blend Calculator ─────────────────────────────────────────────── */
+(function () {
+  const $ = id => document.getElementById(id);
+
+  const btnBlend  = $('calc-mode-blend');
+  const btnRatio  = $('calc-mode-ratio');
+  const pctAWrap  = $('calc-pct-a-wrap');
+  const targetWrap= $('calc-target-wrap');
+  const output    = $('hlb-calc-output');
+  const detail    = $('hlb-calc-detail');
+
+  let mode = 'blend'; // 'blend' | 'ratio'
+
+  function emulsionType(hlb) {
+    if (hlb < 3)  return 'anti-foam agent';
+    if (hlb < 6)  return 'W/O emulsifier';
+    if (hlb < 9)  return 'wetting / spreading agent';
+    if (hlb < 11) return 'O/W or W/O emulsifier (transition zone)';
+    if (hlb < 14) return 'O/W emulsifier';
+    if (hlb < 16) return 'detergent';
+    return 'solubiliser';
+  }
+
+  function calc() {
+    const hlbA = parseFloat($('calc-hlb-a').value);
+    const hlbB = parseFloat($('calc-hlb-b').value);
+    const nameA = $('calc-name-a').value.trim() || 'Surfactant A';
+    const nameB = $('calc-name-b').value.trim() || 'Surfactant B';
+
+    if (isNaN(hlbA) || isNaN(hlbB)) return;
+
+    if (mode === 'blend') {
+      const pctA = parseFloat($('calc-pct-a').value);
+      if (isNaN(pctA) || pctA < 0 || pctA > 100) return;
+      const pctB = 100 - pctA;
+      const blend = (pctA * hlbA + pctB * hlbB) / 100;
+      output.innerHTML = `HLB blend = <strong>${blend.toFixed(2)}</strong>`;
+      detail.innerHTML = `${pctA.toFixed(0)}% ${nameA} (HLB ${hlbA}) + ${pctB.toFixed(0)}% ${nameB} (HLB ${hlbB}) — acts as a <strong>${emulsionType(blend)}</strong>.`;
+    } else {
+      const target = parseFloat($('calc-target').value);
+      if (isNaN(target)) return;
+      if (hlbA === hlbB) {
+        output.innerHTML = `<span style="color:var(--state-error,#c0392b)">Cannot solve — both HLB values are equal.</span>`;
+        detail.innerHTML = '';
+        return;
+      }
+      // target = (x * hlbA + (100-x) * hlbB) / 100  →  x = (target*100 - 100*hlbB) / (hlbA - hlbB)
+      const pctA = (target * 100 - 100 * hlbB) / (hlbA - hlbB);
+      if (pctA < 0 || pctA > 100) {
+        output.innerHTML = `<span style="color:var(--state-error,#c0392b)">Target rHLB ${target} is outside the achievable range (${Math.min(hlbA,hlbB).toFixed(1)}–${Math.max(hlbA,hlbB).toFixed(1)}).</span>`;
+        detail.innerHTML = '';
+        return;
+      }
+      const pctB = 100 - pctA;
+      output.innerHTML = `${nameA}: <strong>${pctA.toFixed(1)}%</strong> &nbsp;|&nbsp; ${nameB}: <strong>${pctB.toFixed(1)}%</strong>`;
+      detail.innerHTML = `This blend achieves an HLB of <strong>${target}</strong> — acting as a <strong>${emulsionType(target)}</strong>.`;
+    }
+  }
+
+  function setMode(m) {
+    mode = m;
+    if (m === 'blend') {
+      btnBlend.classList.add('filter-btn--active');
+      btnRatio.classList.remove('filter-btn--active');
+      pctAWrap.style.display  = '';
+      targetWrap.style.display = 'none';
+    } else {
+      btnRatio.classList.add('filter-btn--active');
+      btnBlend.classList.remove('filter-btn--active');
+      pctAWrap.style.display  = 'none';
+      targetWrap.style.display = '';
+    }
+    calc();
+  }
+
+  btnBlend.addEventListener('click', () => setMode('blend'));
+  btnRatio.addEventListener('click', () => setMode('ratio'));
+
+  ['calc-name-a','calc-hlb-a','calc-pct-a','calc-name-b','calc-hlb-b','calc-target'].forEach(id => {
+    const el = $(id);
+    if (el) el.addEventListener('input', calc);
+  });
+
+  calc(); // initial render
+})();
 </script>
 
 </body>
