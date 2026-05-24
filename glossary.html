@@ -217,6 +217,15 @@
 
 <main id="main">
 
+  <!-- Breadcrumbs -->
+  <div class="container" style="padding-top: var(--space-6);">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <span aria-current="page">Glossary</span>
+    </nav>
+  </div>
+
   <header class="page-hero" aria-labelledby="page-title">
     <div class="container">
       <p class="section-label" style="margin-bottom:var(--space-3);">Reference</p>
@@ -617,6 +626,9 @@
 
 </main>
 
+<!-- Back to top button -->
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
 <footer class="footer" role="contentinfo">
   <div class="container">
     <div class="footer__logo">Organic<span>Beauty</span></div>
@@ -711,6 +723,19 @@
     });
 
     noResults.style.display = visible === 0 && q ? 'block' : 'none';
+  });
+
+  /* Back to top button */
+  const backToTopBtn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 </script>
 

@@ -23,13 +23,18 @@
   --color-petal:        #E8C4A0;
   --color-moss:         #8FA67A;
 
+  /* New accent colors */
+  --color-blue-accent:  #5B7BA5;
+  --color-blue-accent-dark: #3E5A7D;
+  --color-accent-stronger: #C45A41;
+
   /* Semantic */
   --bg:                 var(--color-cream);
   --bg-card:            #FFFDF9;
   --bg-subtle:          var(--color-cream-dark);
   --text-primary:       var(--color-bark);
   --text-secondary:     var(--color-bark-light);
-  --text-muted:         var(--color-stone-dark);
+  --text-muted:         #956E4C;
   --text-on-dark:       var(--color-cream);
   --border:             rgba(169, 144, 112, 0.25);
   --border-strong:      rgba(169, 144, 112, 0.5);
@@ -563,13 +568,13 @@ p + p { margin-top: var(--space-4); }
 
 .tag--sage {
   background: rgba(125, 155, 118, 0.12);
-  color: var(--sage-dark, #5A7554);
+  color: var(--color-sage-dark, #5A7554);
   border-color: rgba(125, 155, 118, 0.25);
 }
 
 .tag--terracotta {
   background: rgba(196, 113, 74, 0.1);
-  color: var(--terracotta-dk, #9E5636);
+  color: var(--color-terracotta-dk, #9E5636);
   border-color: rgba(196, 113, 74, 0.2);
 }
 
@@ -856,6 +861,150 @@ p + p { margin-top: var(--space-4); }
 }
 
 .skip-link:focus { top: var(--space-4); }
+
+/* ─── Breadcrumbs ───────────────────────────────────────────── */
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.breadcrumbs a {
+  color: var(--accent);
+  transition: color var(--transition-fast);
+}
+
+.breadcrumbs a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+.breadcrumbs span {
+  opacity: 0.5;
+}
+
+.breadcrumbs [aria-current="page"] {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* ─── Back to Top Button ─────────────────────────────────────── */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: var(--text-on-dark);
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--transition-base), transform var(--transition-base);
+  align-items: center;
+  justify-content: center;
+  z-index: 40;
+  box-shadow: var(--shadow-lg);
+}
+
+.back-to-top.show {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(196, 113, 74, 0.4);
+}
+
+/* ─── Enhanced Callout Boxes ────────────────────────────────── */
+.callout {
+  margin-block: var(--space-6);
+  padding: var(--space-5) var(--space-6);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid;
+  font-size: var(--text-sm);
+  line-height: 1.8;
+  color: var(--text-secondary);
+  background-position: right 20px top 50%;
+  background-repeat: no-repeat;
+  background-size: 40px;
+}
+
+.callout--formula {
+  background-color: rgba(196, 113, 74, 0.08);
+  border-color: var(--accent);
+}
+
+.callout--science {
+  background-color: rgba(125, 155, 118, 0.12);
+  border-color: var(--color-sage);
+}
+
+.callout--warning {
+  background-color: rgba(196, 113, 74, 0.12);
+  border-color: var(--color-accent-stronger);
+}
+
+.callout--clinical {
+  background-color: rgba(91, 123, 165, 0.10);
+  border-color: var(--color-blue-accent);
+}
+
+.callout__title {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--space-2);
+}
+
+/* ─── Improved Tag Contrast ─────────────────────────────────── */
+.tag--sage {
+  background: rgba(125, 155, 118, 0.15);
+  color: var(--color-sage-dark);
+  border-color: rgba(125, 155, 118, 0.35);
+  font-weight: 500;
+}
+
+.tag--terracotta {
+  background: rgba(196, 113, 74, 0.12);
+  color: var(--color-terracotta-dk);
+  border-color: rgba(196, 113, 74, 0.3);
+  font-weight: 500;
+}
+
+.tag--stone {
+  background: rgba(201, 185, 154, 0.25);
+  color: var(--color-bark-light);
+  border-color: rgba(201, 185, 154, 0.4);
+  font-weight: 500;
+}
+
+.tag--olive {
+  background: rgba(74, 92, 58, 0.12);
+  color: var(--color-olive);
+  border-color: rgba(74, 92, 58, 0.3);
+  font-weight: 500;
+}
+
+.tag--blue {
+  background: rgba(91, 123, 165, 0.12);
+  color: var(--color-blue-accent-dark);
+  border-color: rgba(91, 123, 165, 0.3);
+  font-weight: 500;
+}
 
 /* ─── Responsive ────────────────────────────────────────────── */
 @media (max-width: 1024px) {

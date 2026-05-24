@@ -462,10 +462,19 @@
     </div>
   </nav>
 
-  <main id="main">
+<main id="main">
 
-    <!-- Page hero -->
-    <header class="page-hero" aria-labelledby="page-title">
+  <!-- Breadcrumbs -->
+  <div class="container" style="padding-top: var(--space-6);">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <span aria-current="page">Ingredients</span>
+    </nav>
+  </div>
+
+  <!-- Page hero -->
+  <header class="page-hero" aria-labelledby="page-title">
       <div class="container">
         <p class="section-label page-hero__label">Reference database</p>
         <h1 class="page-hero__title" id="page-title">
@@ -477,32 +486,32 @@
       </div>
     </header>
 
-    <!-- Sticky search + filters -->
-    <section class="search-section" aria-label="Search and filter ingredients">
-      <div class="container">
-        <div class="search-row">
-          <div class="search-bar" role="search">
-            <label for="search-input" class="sr-only">Search ingredients by name, INCI, function, or concern</label>
-            <div class="search-bar" style="display:flex; align-items:center; gap:var(--space-3);">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="flex-shrink:0; opacity:0.45;">
-                <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-              <input
-                type="search"
-                id="search-input"
-                placeholder="Search by name, INCI, function, concern…"
-                autocomplete="off"
-                spellcheck="false"
-              >
-            </div>
-          </div>
-          <p class="result-count" aria-live="polite" aria-atomic="true">
-            <span id="result-count">Loading…</span>
-          </p>
-        </div>
+     <!-- Sticky search + filters -->
+     <section class="search-section" aria-label="Search and filter ingredients">
+       <div class="container">
+         <div class="search-row">
+           <div class="search-bar" role="search">
+             <label for="search-input" class="sr-only">Search ingredients by name, INCI, function, or concern</label>
+             <div class="search-bar" style="display:flex; align-items:center; gap:var(--space-3);">
+               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="flex-shrink:0; opacity:0.45;">
+                 <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.5"/>
+                 <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+               </svg>
+               <input
+                 type="search"
+                 id="search-input"
+                 placeholder="Search by name, INCI, function, concern… Try: 'vitamin C', 'pH 5'"
+                 autocomplete="off"
+                 spellcheck="false"
+               >
+             </div>
+           </div>
+           <p class="result-count" aria-live="polite" aria-atomic="true">
+             <span id="result-count">Loading…</span>
+           </p>
+         </div>
 
-        <div class="filters" role="group" aria-label="Filter ingredients">
+         <div class="filters" role="group" aria-label="Filter ingredients">
           <span class="filter-label">Category</span>
           <div class="filter-group">
             <button class="filter-btn filter-btn--active" data-filter="category" data-value="all" aria-pressed="true">All</button>
@@ -560,7 +569,10 @@
       >×</button>
       <div id="modal-body" aria-live="polite"></div>
     </div>
-  </div>
+  </main>
+
+  <!-- Back to top button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
 
   <!-- Footer -->
   <footer class="footer" role="contentinfo">
@@ -622,8 +634,23 @@
     document.head.appendChild(style);
   </script>
 
-  <!-- Search engine — loads after Fuse.js -->
-  <script src="js/search.js"></script>
+   <!-- Search engine — loads after Fuse.js -->
+   <script src="js/search.js"></script>
 
-</body>
+   <!-- Back to top button -->
+   <script>
+     const backToTopBtn = document.getElementById('back-to-top');
+     window.addEventListener('scroll', () => {
+       if (window.scrollY > 300) {
+         backToTopBtn.classList.add('show');
+       } else {
+         backToTopBtn.classList.remove('show');
+       }
+     });
+     backToTopBtn.addEventListener('click', () => {
+       window.scrollTo({ top: 0, behavior: 'smooth' });
+     });
+   </script>
+
+ </body>
 </html>

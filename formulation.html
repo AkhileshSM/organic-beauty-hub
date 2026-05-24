@@ -154,25 +154,80 @@
       border-radius: 3px;
     }
 
-    /* HLB table */
-    .hlb-table-wrap { overflow-x: auto; margin-block: var(--space-6); }
-    .hlb-scale {
-      width: 100%;
-      margin-block: var(--space-4);
-    }
-    .hlb-scale__bar {
-      height: 10px;
-      border-radius: var(--radius-pill);
-      background: linear-gradient(to right, var(--color-olive), var(--color-sage), var(--color-stone), var(--color-terracotta));
-      position: relative;
-      margin-bottom: var(--space-2);
-    }
-    .hlb-scale__labels {
-      display: flex;
-      justify-content: space-between;
-      font-size: var(--text-xs);
-      color: var(--text-muted);
-    }
+     /* HLB table */
+     .hlb-table-wrap { overflow-x: auto; margin-block: var(--space-6); }
+     .hlb-scale {
+       width: 100%;
+       margin-block: var(--space-4);
+     }
+     .hlb-scale__bar {
+       height: 10px;
+       border-radius: var(--radius-pill);
+       background: linear-gradient(to right, var(--color-olive), var(--color-sage), var(--color-stone), var(--color-terracotta));
+       position: relative;
+       margin-bottom: var(--space-2);
+     }
+     .hlb-scale__labels {
+       display: flex;
+       justify-content: space-between;
+       font-size: var(--text-xs);
+       color: var(--text-muted);
+       margin-bottom: var(--space-6);
+     }
+     .hlb-scale__input {
+       margin-top: var(--space-8);
+       padding: var(--space-6);
+       background: var(--bg-subtle);
+       border-radius: var(--radius-lg);
+       border: 1px solid var(--border);
+     }
+
+     /* Slider styling */
+     input[type="range"] {
+       -webkit-appearance: none;
+       appearance: none;
+       width: 100%;
+       height: 8px;
+       background: linear-gradient(to right, var(--color-olive), var(--color-sage), var(--color-stone), var(--color-terracotta));
+       border-radius: var(--radius-pill);
+       outline: none;
+       cursor: pointer;
+     }
+
+     input[type="range"]::-webkit-slider-thumb {
+       -webkit-appearance: none;
+       appearance: none;
+       width: 24px;
+       height: 24px;
+       background: var(--accent);
+       border-radius: 50%;
+       cursor: pointer;
+       box-shadow: 0 2px 8px rgba(196, 113, 74, 0.3);
+       transition: all var(--transition-fast);
+     }
+
+     input[type="range"]::-webkit-slider-thumb:hover {
+       width: 28px;
+       height: 28px;
+       box-shadow: 0 4px 12px rgba(196, 113, 74, 0.5);
+     }
+
+     input[type="range"]::-moz-range-thumb {
+       width: 24px;
+       height: 24px;
+       background: var(--accent);
+       border-radius: 50%;
+       border: none;
+       cursor: pointer;
+       box-shadow: 0 2px 8px rgba(196, 113, 74, 0.3);
+       transition: all var(--transition-fast);
+     }
+
+     input[type="range"]::-moz-range-thumb:hover {
+       width: 28px;
+       height: 28px;
+       box-shadow: 0 4px 12px rgba(196, 113, 74, 0.5);
+     }
 
     /* Phase diagram */
     .phase-cards {
@@ -282,6 +337,15 @@
 
 <main id="main">
 
+  <!-- Breadcrumbs -->
+  <div class="container" style="padding-top: var(--space-6);">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <span aria-current="page">Formulation Science</span>
+    </nav>
+  </div>
+
   <header class="page-hero" aria-labelledby="page-title">
     <div class="container">
       <p class="section-label" style="margin-bottom:var(--space-3);">Science of making</p>
@@ -353,16 +417,24 @@
           <div class="chapter__body">
             <p>The Hydrophilic-Lipophilic Balance (HLB) is a numerical scale (0–20) quantifying the relative affinity of an emulsifier for water vs oil phases. Developed by William Griffin at Atlas Chemical in 1949, it remains the primary tool for rational emulsifier selection.</p>
 
-            <div class="hlb-scale" aria-label="HLB scale from 0 to 20">
-              <div class="hlb-scale__bar"></div>
-              <div class="hlb-scale__labels">
-                <span>0 — Lipophilic (W/O)</span>
-                <span>6 — W/O emulsifier</span>
-                <span>10</span>
-                <span>14 — O/W emulsifier</span>
-                <span>20 — Hydrophilic</span>
-              </div>
-            </div>
+             <div class="hlb-scale" aria-label="HLB scale from 0 to 20">
+               <div class="hlb-scale__bar" id="hlb-bar"></div>
+               <div class="hlb-scale__labels" id="hlb-labels">
+                 <span>0 — Lipophilic (W/O)</span>
+                 <span>6 — W/O emulsifier</span>
+                 <span>10</span>
+                 <span>14 — O/W emulsifier</span>
+                 <span>20 — Hydrophilic</span>
+               </div>
+               <div class="hlb-scale__input">
+                 <label for="hlb-slider" style="font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--space-2); display: block;">Interactive HLB Scale</label>
+                 <input type="range" id="hlb-slider" min="0" max="20" value="10" style="width: 100%; cursor: pointer;">
+                 <div style="text-align: center; margin-top: var(--space-3);">
+                   <span style="font-size: var(--text-2xl); font-family: var(--font-display); font-weight: 300; color: var(--accent);" id="hlb-value">10</span>
+                   <span style="font-size: var(--text-xs); color: var(--text-muted); margin-left: var(--space-2);" id="hlb-type">Neutral</span>
+                 </div>
+               </div>
+             </div>
 
             <div class="hlb-table-wrap">
               <table class="data-table" aria-label="HLB ranges and applications">
@@ -387,10 +459,10 @@
             <h4>Required HLB (rHLB)</h4>
             <p>Every oil phase has a required HLB — the emulsifier HLB that produces the most stable emulsion for that oil. When blending emulsifiers, the blend HLB is calculated as the weighted average:</p>
             <div class="callout callout--formula">
-              <p class="callout__title">HLB blend formula</p>
-              <code>HLB blend = (% emulsifier A × HLB A + % emulsifier B × HLB B) / 100</code>
-              <p style="margin-top:var(--space-3);">Example: 60% Span 80 (HLB 4.3) + 40% Tween 80 (HLB 15) = <strong>HLB 8.6</strong> — suitable for a light W/O emulsion.</p>
-            </div>
+               <p class="callout__title">HLB blend formula</p>
+               <code>HLB blend = (% emulsifier A × HLB A + % emulsifier B × HLB B) / 100</code>
+               <p style="margin-top:var(--space-3);">Example: 60% Span 80 (HLB 4.3) + 40% Tween 80 (HLB 15) = <strong>HLB 8.6</strong> — suitable for a light W/O emulsion.</p>
+             </div>
             <p>Blending high- and low-HLB emulsifiers always outperforms a single emulsifier at the equivalent HLB — the synergistic packing at the oil-water interface is superior.</p>
           </div>
         </article>
@@ -597,6 +669,9 @@
 
 </main>
 
+<!-- Back to top button -->
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
 <footer class="footer" role="contentinfo">
   <div class="container">
     <div class="footer__logo">Organic<span>Beauty</span></div>
@@ -658,6 +733,52 @@
     });
   }, { rootMargin: '-20% 0px -70% 0px' });
   chapters.forEach(c => observer.observe(c));
+
+  // Back to top button
+  const backToTopBtn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // HLB Scale Interactive
+  const hlbSlider = document.getElementById('hlb-slider');
+  const hlbValue = document.getElementById('hlb-value');
+  const hlbType = document.getElementById('hlb-type');
+
+  const hlbTypes = {
+    0: { range: '0–3', type: 'Lipophilic (W/O)' },
+    3: { range: '3–6', type: 'W/O Emulsifier' },
+    6: { range: '7–9', type: 'Wetting Agent' },
+    9: { range: '8–16', type: 'O/W Emulsifier' },
+    16: { range: '13–16', type: 'Detergent' },
+    20: { range: '15–20', type: 'Solubiliser' }
+  };
+
+  function updateHLB() {
+    const val = parseFloat(hlbSlider.value);
+    hlbValue.textContent = val.toFixed(1);
+
+    let type = 'Neutral';
+    if (val < 3) type = 'Lipophilic (W/O)';
+    else if (val < 6) type = 'W/O Emulsifier';
+    else if (val < 9) type = 'Wetting Agent';
+    else if (val < 13) type = 'O/W Emulsifier';
+    else if (val < 16) type = 'Detergent';
+    else type = 'Solubiliser / Hydrophilic';
+
+    hlbType.textContent = type;
+    hlbSlider.style.background = `linear-gradient(to right, #4A5C3A 0%, #7D9B76 ${val*5}%, #C9B99A ${val*5}%, #C4714A 100%)`;
+  }
+
+  hlbSlider.addEventListener('input', updateHLB);
+  updateHLB();
 </script>
 
 </body>
