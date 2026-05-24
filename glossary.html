@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cosmetics regulatory and science glossary — INCI nomenclature, EU 1223/2009, FDA, ISO 22716, ISO 11930, and key analytical chemistry terms.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#F7F3ED">
+  <title>Glossary — Organic Beauty Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .page-hero {
+      padding-block: var(--space-16) var(--space-10);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-subtle);
+    }
+    .page-hero__title { font-family: var(--font-display); font-size: var(--text-5xl); font-weight: 300; margin-bottom: var(--space-4); }
+    .page-hero__title em { font-style: italic; color: var(--color-olive); }
+
+    /* Filter bar */
+    .filter-bar {
+      position: sticky;
+      top: 68px;
+      z-index: 50;
+      background: rgba(247,243,237,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding-block: var(--space-4);
+    }
+    .filter-bar__inner {
+      display: flex;
+      gap: var(--space-4);
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .filter-bar input[type="search"] {
+      flex: 1;
+      min-width: 220px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-pill);
+      padding: var(--space-2) var(--space-5);
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 300;
+      color: var(--text-primary);
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+    .filter-bar input[type="search"]:focus {
+      border-color: var(--color-olive);
+      box-shadow: 0 0 0 3px rgba(74,92,58,0.1);
+    }
+    .alpha-nav {
+      display: flex;
+      gap: 2px;
+      flex-wrap: wrap;
+    }
+    .alpha-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--radius-sm);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      color: var(--text-muted);
+      border: 1px solid transparent;
+      background: transparent;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .alpha-btn:hover { background: var(--bg-subtle); color: var(--text-primary); }
+    .alpha-btn.has-entries { color: var(--text-secondary); border-color: var(--border); }
+    .alpha-btn.active { background: var(--color-olive); color: white; border-color: var(--color-olive); }
+
+    /* Layout */
+    .glossary-layout {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: var(--space-16);
+      align-items: start;
+      padding-block: var(--space-12);
+    }
+
+    /* Sections */
+    .glossary-section { margin-bottom: var(--space-12); }
+    .glossary-section__header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-4);
+      border-bottom: 2px solid var(--color-olive);
+    }
+    .glossary-section__letter {
+      font-family: var(--font-display);
+      font-size: var(--text-5xl);
+      font-weight: 300;
+      color: var(--color-olive);
+      line-height: 1;
+    }
+    .glossary-section__title {
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* Entries */
+    .glossary-entry {
+      padding: var(--space-5) 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .glossary-entry:last-child { border-bottom: none; }
+    .glossary-entry__term {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 400;
+      color: var(--text-primary);
+      margin-bottom: var(--space-1);
+    }
+    .glossary-entry__abbr {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+      font-style: normal;
+      margin-bottom: var(--space-3);
+      display: block;
+    }
+    .glossary-entry__def {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: 1.85;
+      max-width: 640px;
+    }
+    .glossary-entry__tags {
+      display: flex;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+      margin-top: var(--space-3);
+    }
+    .glossary-entry__related {
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+      margin-top: var(--space-3);
+    }
+    .glossary-entry__related a { color: var(--color-olive); text-decoration: underline; text-underline-offset: 2px; }
+    .glossary-entry__related a:hover { color: var(--color-sage-dark); }
+
+    /* Regulatory framework cards */
+    .reg-framework {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      margin-bottom: var(--space-6);
+    }
+    .reg-framework__header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    .reg-framework__flag { font-size: 1.5rem; }
+    .reg-framework__name { font-family: var(--font-display); font-size: var(--text-2xl); }
+    .reg-framework__ref  { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.06em; }
+    .reg-framework__body { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.8; }
+    .reg-framework__body p + p { margin-top: var(--space-3); }
+
+    /* Sidebar */
+    .sidebar { position: sticky; top: calc(68px + 68px + var(--space-8)); }
+    .sidebar__title { font-size: var(--text-xs); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: var(--space-4); }
+    .sidebar__list  { display: flex; flex-direction: column; gap: var(--space-2); }
+    .sidebar__link  { font-size: var(--text-sm); color: var(--text-secondary); transition: color var(--transition-fast); }
+    .sidebar__link:hover { color: var(--color-olive); }
+
+    /* Empty filter state */
+    .no-results { display: none; padding: var(--space-12) 0; text-align: center; color: var(--text-muted); }
+
+    @media (max-width: 1024px) {
+      .glossary-layout { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+    }
+    @media (max-width: 600px) {
+      .alpha-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<nav class="nav" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">Organic<span>Beauty</span></a>
+      <ul class="nav__links" id="nav-links" role="list">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="ingredients.html" class="nav__link">Ingredients</a></li>
+        <li><a href="formulation.html" class="nav__link">Formulation</a></li>
+        <li><a href="skin-science.html" class="nav__link">Skin Science</a></li>
+        <li><a href="glossary.html" class="nav__link active" aria-current="page">Glossary</a></li>
+      </ul>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+  <header class="page-hero" aria-labelledby="page-title">
+    <div class="container">
+      <p class="section-label" style="margin-bottom:var(--space-3);">Reference</p>
+      <h1 class="page-hero__title" id="page-title">Regulatory &amp; Science <em>Glossary</em></h1>
+      <p class="lead" style="max-width:620px;">
+        INCI nomenclature, EU Regulation 1223/2009, FDA classification, ISO standards, and key analytical chemistry terms — all in one searchable reference.
+      </p>
+    </div>
+  </header>
+
+  <!-- Filter bar -->
+  <div class="filter-bar" role="search" aria-label="Search and filter glossary">
+    <div class="container">
+      <div class="filter-bar__inner">
+        <input type="search" id="glossary-search" placeholder="Search terms…" autocomplete="off" aria-label="Search glossary terms">
+        <nav class="alpha-nav" aria-label="Alphabetical filter">
+          <!-- JS populates -->
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="glossary-layout">
+
+      <div id="glossary-main">
+
+        <!-- Regulatory frameworks section -->
+        <section id="regulatory" aria-labelledby="reg-heading">
+          <div class="glossary-section__header" style="border-bottom-color: var(--color-stone-dark);">
+            <span class="glossary-section__letter" style="color:var(--color-stone-dark);">📋</span>
+            <div>
+              <p class="glossary-section__title">Regulatory Frameworks</p>
+            </div>
+          </div>
+
+          <div id="eu" class="reg-framework">
+            <div class="reg-framework__header">
+              <span class="reg-framework__flag">🇪🇺</span>
+              <div>
+                <p class="reg-framework__name">EU Regulation 1223/2009</p>
+                <p class="reg-framework__ref">Regulation (EC) No 1223/2009 of the European Parliament — on cosmetic products</p>
+              </div>
+            </div>
+            <div class="reg-framework__body">
+              <p>The primary legal framework governing cosmetics across all 27 EU member states (plus EEA countries). Replaced Directive 76/768/EEC in July 2013. Key provisions:</p>
+              <p><strong>Annex II:</strong> 1,328 substances prohibited in cosmetics. <strong>Annex III:</strong> Substances permitted only with specified restrictions (concentration, rinse-off vs leave-on, pH range). <strong>Annex IV:</strong> Approved colorants. <strong>Annex V:</strong> Approved preservatives. <strong>Annex VI:</strong> Approved UV filters.</p>
+              <p>All cosmetics placed on the EU market must have a Product Information File (PIF) containing safety assessment, formula, manufacturing method, and a Cosmetic Product Safety Report (CPSR) signed by a qualified safety assessor. The CPSR must be updated when any ingredient or concentration changes.</p>
+            </div>
+          </div>
+
+          <div id="fda" class="reg-framework">
+            <div class="reg-framework__header">
+              <span class="reg-framework__flag">🇺🇸</span>
+              <div>
+                <p class="reg-framework__name">FDA Cosmetic Regulation (US)</p>
+                <p class="reg-framework__ref">FD&amp;C Act + Modernization of Cosmetics Regulation Act (MoCRA) 2022</p>
+              </div>
+            </div>
+            <div class="reg-framework__body">
+              <p>The US system is significantly less prescriptive than EU 1223/2009. Historically required no pre-market approval for cosmetics (unlike drugs). The 2022 MoCRA significantly expanded FDA authority:</p>
+              <p><strong>Drug vs Cosmetic distinction:</strong> A product is a drug if it claims to affect body structure or function. Sunscreens (OTC drugs), anti-dandruff shampoos, fluoride toothpastes, and antiperspirants are regulated as OTC drugs — higher evidence bar. Many ingredients permitted in US cosmetics are banned or restricted in the EU (e.g. certain formaldehyde-releasing preservatives, some hair dye components).</p>
+              <p><strong>MoCRA 2022</strong> introduced mandatory facility registration, product listing, adverse event reporting, and gave FDA authority to recall cosmetics for the first time.</p>
+            </div>
+          </div>
+
+          <div id="iso" class="reg-framework">
+            <div class="reg-framework__header">
+              <span class="reg-framework__flag">🌍</span>
+              <div>
+                <p class="reg-framework__name">ISO Standards (Cosmetics)</p>
+                <p class="reg-framework__ref">International Organisation for Standardisation — cosmetics sector</p>
+              </div>
+            </div>
+            <div class="reg-framework__body">
+              <p><strong id="iso11930">ISO 22716:2007 (GMP):</strong> Good Manufacturing Practices for cosmetics — covers personnel, premises, equipment, raw materials, production, finished products, quality control, and documentation. The industry benchmark for manufacturing quality; required for EU market access in practice.</p>
+              <p><strong>ISO 11930:2019 (Preservation efficacy):</strong> Defines the Preservative Challenge Test (PCT) methodology — five test organisms, 28-day incubation, Category A and B pass criteria. Superseded the European Pharmacopoeia 5.1.3 method.</p>
+              <p><strong>ISO 17516:2014 (Microbial limits):</strong> Specifies the maximum permitted microbial contamination in finished cosmetic products — total aerobic microbial count (TAMC), total combined yeasts/moulds count (TYMC), and specific pathogen absence criteria.</p>
+              <p><strong>ISO 29621:2017 (Stability testing):</strong> Guidance on microbiological risk assessment for water activity — identifies which products require full preservation vs which low-water-activity products have inherent microbial safety.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- A -->
+        <section class="glossary-section" id="section-A" aria-labelledby="letter-A">
+          <div class="glossary-section__header">
+            <span class="glossary-section__letter" id="letter-A">A</span>
+          </div>
+          <dl>
+            <div class="glossary-entry" id="term-aha">
+              <dt class="glossary-entry__term">AHA</dt>
+              <abbr class="glossary-entry__abbr">Alpha-Hydroxy Acid</abbr>
+              <dd class="glossary-entry__def">Water-soluble carboxylic acids (glycolic, lactic, mandelic, malic, tartaric, citric) that exfoliate by weakening desmosomes between corneocytes, accelerating desquamation. Effective concentration is the undissociated (protonated) acid form — efficacy drops sharply above pH 4. Glycolic acid (smallest MW, deepest penetration) is most studied. EU max 10% in rinse-off, 6% in leave-on; pH min 3.5 for consumer products per SCCS.</dd>
+              <div class="glossary-entry__tags">
+                <span class="tag tag--terracotta">Exfoliant</span>
+                <span class="tag tag--stone">EU restricted</span>
+              </div>
+            </div>
+            <div class="glossary-entry" id="term-active">
+              <dt class="glossary-entry__term">Active ingredient</dt>
+              <dd class="glossary-entry__def">An ingredient included for a specific functional effect on skin (e.g. niacinamide for brightening, retinol for anti-ageing). Regulatory distinction from a drug: an active cosmetic ingredient must produce its effect at the skin surface or within the stratum corneum — claims of systemic or physiological effect (affecting body function or structure) reclassify the product as a drug or quasi-drug.</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--sage">Formulation</span></div>
+            </div>
+            <div class="glossary-entry" id="term-anhydrous">
+              <dt class="glossary-entry__term">Anhydrous</dt>
+              <dd class="glossary-entry__def">Water-free formulation. Includes oils, balms, serums in oil, sticks, and powders. Significantly lower preservation challenge than aqueous systems (microorganisms require water to proliferate). Common for unstable actives: vitamin C, retinol, and certain peptides formulated anhydrous to extend shelf life.</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--stone">Formulation type</span></div>
+            </div>
+          </dl>
+        </section>
+
+        <!-- B -->
+        <section class="glossary-section" id="section-B" aria-labelledby="letter-B">
+          <div class="glossary-section__header">
+            <span class="glossary-section__letter" id="letter-B">B</span>
+          </div>
+          <dl>
+            <div class="glossary-entry" id="term-bha">
+              <dt class="glossary-entry__term">BHA</dt>
+              <abbr class="glossary-entry__abbr">Beta-Hydroxy Acid</abbr>
+              <dd class="glossary-entry__def">Lipid-soluble hydroxy acid — primarily salicylic acid in cosmetics. Oil solubility distinguishes it from AHAs: BHA penetrates sebaceous follicles, making it specifically effective for comedonal and acne-prone skin. EU max 2% in face products; classified as OTC drug at 0.5–2% in the US.</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--terracotta">Exfoliant</span><span class="tag tag--stone">EU restricted</span></div>
+            </div>
+            <div class="glossary-entry" id="term-broad-spectrum">
+              <dt class="glossary-entry__term">Broad-spectrum protection</dt>
+              <dd class="glossary-entry__def">A sunscreen that protects against both UVA (315–400nm) and UVB (280–315nm) radiation. In the EU, a product can only claim "broad spectrum" if its UVA-PF is at least one-third of its labelled SPF (the "1/3 rule" per COLIPA/ISO 24442). In the US, the FDA broad-spectrum test requires a critical wavelength ≥370nm.</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--sage">SPF</span></div>
+            </div>
+          </dl>
+        </section>
+
+        <!-- C -->
+        <section class="glossary-section" id="section-C" aria-labelledby="letter-C">
+          <div class="glossary-section__header">
+            <span class="glossary-section__letter" id="letter-C">C</span>
+          </div>
+          <dl>
+            <div class="glossary-entry" id="term-cas">
+              <dt class="glossary-entry__term">CAS Number</dt>
+              <abbr class="glossary-entry__abbr">Chemical Abstracts Service Registry Number</abbr>
+              <dd class="glossary-entry__def">A unique numerical identifier assigned to every chemical substance by the American Chemical Society. Format: up to 10 digits separated by hyphens (e.g. niacinamide = 98-92-0). The CAS number is substance-specific — it does not change with INCI name changes or synonyms. Essential for unambiguous ingredient identification in regulatory dossiers and safety data sheets.</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--stone">Regulatory</span></div>
+            </div>
+            <div class="glossary-entry" id="term-ceramide">
+              <dt class="glossary-entry__term">Ceramide</dt>
+              <dd class="glossary-entry__def">A family of lipid molecules consisting of a sphingoid base linked to a fatty acid via an amide bond. The dominant lipid class in the stratum corneum (~50% of SC lipids by weight). Twelve ceramide classes (NP, NS, EOS, EOH, AP, etc.) have been identified in human skin. Critical for lamellar bilayer formation, barrier integrity, and regulation of transepidermal water loss. Deficiency is a hallmark of atopic dermatitis and dry skin conditions.</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--sage">Barrier lipid</span></div>
+            </div>
+            <div class="glossary-entry" id="term-comedogenic">
+              <dt class="glossary-entry__term">Comedogenicity</dt>
+              <dd class="glossary-entry__def">The tendency of a substance to cause or promote comedone (blackhead/whitehead) formation by occluding follicles or promoting hyperkeratinisation. Comedogenicity scales (0–5) exist but are based on outdated rabbit ear assays — widely considered unreliable for predicting human skin response. Clinically, comedogenicity is concentration-dependent and formulation-dependent; an ingredient that is comedogenic at 100% may be non-comedogenic at the in-use concentration in a finished formula.</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--terracotta">Skin concern</span></div>
+            </div>
+          </dl>
+        </section>
+
+        <!-- D -->
+        <section class="glossary-section" id="section-D" aria-labelledby="letter-D">
+          <div class="glossary-section__header"><span class="glossary-section__letter" id="letter-D">D</span></div>
+          <dl>
+            <div class="glossary-entry" id="term-desquamation">
+              <dt class="glossary-entry__term">Desquamation</dt>
+              <dd class="glossary-entry__def">The natural process of shedding dead corneocytes from the skin surface. Regulated by serine proteases (kallikreins 5 and 7) which cleave corneodesmosins — the proteins holding corneocytes together. Normally invisible and continuous. Disrupted in ichthyosis (too slow) and with AHA/BHA use (accelerated). The full epidermal turnover cycle is approximately 28 days in young adults, increasing to 45–60 days with age.</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--stone">Skin biology</span></div>
+            </div>
+          </dl>
+        </section>
+
+        <!-- E -->
+        <section class="glossary-section" id="section-E" aria-labelledby="letter-E">
+          <div class="glossary-section__header"><span class="glossary-section__letter" id="letter-E">E</span></div>
+          <dl>
+            <div class="glossary-entry" id="term-emollient">
+              <dt class="glossary-entry__term">Emollient</dt>
+              <dd class="glossary-entry__def">An ingredient that softens and smooths the skin by filling gaps between corneocytes with lipid-like molecules, improving skin texture and flexibility. Distinct from occlusives (which form a physical film) and humectants (which attract water). Examples: caprylic/capric triglyceride, isononyl isononanoate, squalane, dimethicone. The primary driver of the sensory feel of a formulation.</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--sage">Moisturisation</span></div>
+            </div>
+            <div class="glossary-entry" id="term-emulsifier">
+              <dt class="glossary-entry__term">Emulsifier</dt>
+              <dd class="glossary-entry__def">An amphiphilic molecule (hydrophilic head + lipophilic tail) that stabilises the oil-water interface in an emulsion by reducing interfacial tension. Classified by HLB value. Modern emulsifiers include non-ionic types (polysorbates, sorbitan esters, sucrose esters), anionic (sodium stearoyl lactylate), and polymeric (Pemulen, Aristoflex). Selection is driven by desired emulsion type, skin feel, pH stability, and compatibility with the active phase.</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--stone">Formulation</span></div>
+            </div>
+          </dl>
+        </section>
+
+        <!-- F -->
+        <section class="glossary-section" id="section-F" aria-labelledby="letter-F">
+          <div class="glossary-section__header"><span class="glossary-section__letter" id="letter-F">F</span></div>
+          <dl>
+            <div class="glossary-entry" id="term-filaggrin">
+              <dt class="glossary-entry__term">Filaggrin (FLG)</dt>
+              <dd class="glossary-entry__def">Filament-aggregating protein encoded by the FLG gene on chromosome 1q21. Produced in the stratum granulosum and cross-linked into the cornified envelope. Subsequently degraded by caspase-14 and other proteases to generate natural moisturising factor (NMF) components (pyrrolidone carboxylic acid, urocanic acid, free amino acids). Loss-of-function FLG mutations (R501X, 2282del4) are carried by ~10% of Europeans and are the strongest genetic risk factor for atopic dermatitis and associated allergic march.</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--olive">Genetics</span><span class="tag tag--sage">Barrier</span></div>
+            </div>
+          </dl>
+        </section>
+
+        <!-- H -->
+        <section class="glossary-section" id="section-H" aria-labelledby="letter-H">
+          <div class="glossary-section__header"><span class="glossary-section__letter" id="letter-H">H</span></div>
+          <dl>
+            <div class="glossary-entry" id="term-hlb">
+              <dt class="glossary-entry__term">HLB</dt>
+              <abbr class="glossary-entry__abbr">Hydrophilic-Lipophilic Balance</abbr>
+              <dd class="glossary-entry__def">A numerical scale (0–20) developed by William Griffin (1949) that quantifies the relative affinity of a surfactant/emulsifier for water (hydrophilic) vs oil (lipophilic). Low HLB (3–6): W/O emulsifiers. High HLB (8–16): O/W emulsifiers. The required HLB (rHLB) of an oil determines the emulsifier blend needed for optimal emulsion stability. Blending emulsifiers at the correct rHLB outperforms a single-component system.</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--stone">Formulation</span></div>
+              <p class="glossary-entry__related">See also: <a href="formulation.html#hlb">HLB Theory guide</a></p>
+            </div>
+            <div class="glossary-entry" id="term-humectant">
+              <dt class="glossary-entry__term">Humectant</dt>
+              <dd class="glossary-entry__def">An ingredient that attracts and binds water from the environment or deeper skin layers into the stratum corneum via hydrogen bonding and osmosis. Examples: glycerin, hyaluronic acid (sodium hyaluronate), urea, sodium PCA, betaine, propylene glycol. In low-humidity conditions, high-MW humectants can paradoxically draw moisture from the dermis — mitigate by layering with an occlusive. Distinct from emollients and occlusives.</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--sage">Moisturisation</span></div>
+            </div>
+          </dl>
+        </section>
+
+        <!-- I -->
+        <section class="glossary-section" id="section-I" aria-labelledby="letter-I">
+          <div class="glossary-section__header"><span class="glossary-section__letter" id="letter-I">I</span></div>
+          <dl>
+            <div class="glossary-entry" id="inci">
+              <dt class="glossary-entry__term">INCI</dt>
+              <abbr class="glossary-entry__abbr">International Nomenclature of Cosmetic Ingredients</abbr>
+              <dd class="glossary-entry__def">The standardised international naming system for cosmetic ingredients, developed by the Personal Care Products Council (PCPC) and adopted globally. INCI names are based on Latin scientific names for botanicals, modified INN (International Nonproprietary Names) for pharmaceutical actives, and systematic chemical names for synthetics. Mandatory on EU product labels in descending order of concentration above 1%; ingredients below 1% may be listed in any order. Enables global label harmonisation and ingredient transparency.</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--olive">Regulatory</span></div>
+            </div>
+          </dl>
+        </section>
+
+        <!-- M -->
+        <section class="glossary-section" id="section-M" aria-labelledby="letter-M">
+          <div class="glossary-section__header"><span class="glossary-section__letter" id="letter-M">M</span></div>
+          <dl>
+            <div class="glossary-entry" id="term-mmp">
+              <dt class="glossary-entry__term">MMP</dt>
+              <abbr class="glossary-entry__abbr">Matrix Metalloproteinase</abbr>
+              <dd class="glossary-entry__def">A family of zinc-dependent endopeptidases responsible for degrading extracellular matrix proteins (collagen, elastin, fibronectin). MMP-1 (collagenase), MMP-3 (stromelysin), MMP-9 (gelatinase B) are upregulated by UV exposure and inflammatory cytokines (IL-1β, TNF-α), driving photoageing-related collagen loss. Antioxidants (vitamin C, E, ferulic acid) and retinoids reduce MMP activity — a primary anti-ageing mechanism. Natural TIMP (tissue inhibitors of metalloproteinases) provide endogenous regulation.</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--terracotta">Photoageing</span><span class="tag tag--stone">Biochemistry</span></div>
+            </div>
+          </dl>
+        </section>
+
+        <!-- N -->
+        <section class="glossary-section" id="section-N" aria-labelledby="letter-N">
+          <div class="glossary-section__header"><span class="glossary-section__letter" id="letter-N">N</span></div>
+          <dl>
+            <div class="glossary-entry" id="term-nmf">
+              <dt class="glossary-entry__term">NMF</dt>
+              <abbr class="glossary-entry__abbr">Natural Moisturising Factor</abbr>
+              <dd class="glossary-entry__def">A mixture of water-soluble hygroscopic compounds found within corneocytes that maintain SC hydration and mechanical flexibility. Composition: free amino acids (40%), pyrrolidone carboxylic acid/PCA (12%), lactate (12%), urea (7%), ammonia, urocanic acid, citrate, inorganic ions, sugars. Produced by filaggrin proteolysis. NMF is depleted by surfactant exposure, low humidity, ageing, and FLG mutations. Topical NMF components (glycerin, sodium PCA, urea, lactic acid) effectively replenish SC water content.</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--sage">Barrier</span></div>
+              <p class="glossary-entry__related">See also: <a href="skin-science.html#barrier">Barrier Function guide</a></p>
+            </div>
+          </dl>
+        </section>
+
+        <!-- O -->
+        <section class="glossary-section" id="section-O" aria-labelledby="letter-O">
+          <div class="glossary-section__header"><span class="glossary-section__letter" id="letter-O">O</span></div>
+          <dl>
+            <div class="glossary-entry" id="term-occlusive">
+              <dt class="glossary-entry__term">Occlusive</dt>
+              <dd class="glossary-entry__def">An ingredient that forms a physical semi-permeable film on the skin surface to reduce transepidermal water loss (TEWL). Petrolatum is the gold standard — reduces TEWL by up to 99% at sufficient thickness. Other occlusives: dimethicone (silicone), beeswax, lanolin, mineral oil, squalane (partial), shea butter, cocoa butter. Essential in barrier-repair and eczema formulations. Distinct from humectants (attract water) and emollients (improve skin texture).</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--stone">Moisturisation</span></div>
+              <p class="glossary-entry__related">See also: <a href="skin-science.html#tewl">TEWL guide</a></p>
+            </div>
+          </dl>
+        </section>
+
+        <!-- P -->
+        <section class="glossary-section" id="section-P" aria-labelledby="letter-P">
+          <div class="glossary-section__header"><span class="glossary-section__letter" id="letter-P">P</span></div>
+          <dl>
+            <div class="glossary-entry" id="term-pao">
+              <dt class="glossary-entry__term">PAO</dt>
+              <abbr class="glossary-entry__abbr">Period After Opening</abbr>
+              <dd class="glossary-entry__def">The recommended period during which a cosmetic product can be used safely after opening. Indicated by the open jar symbol (Ⓜ) followed by a number and M (months) on product packaging. Required under EU Regulation 1223/2009 for products with a shelf life of more than 30 months. Products with shelf life ≤30 months must display a minimum durability date ("best before") instead. PAO is supported by stability testing data — including a Preservative Challenge Test (PCT) per ISO 11930.</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--olive">EU Regulatory</span></div>
+            </div>
+            <div class="glossary-entry" id="term-ph">
+              <dt class="glossary-entry__term">pH</dt>
+              <abbr class="glossary-entry__abbr">Potential of Hydrogen</abbr>
+              <dd class="glossary-entry__def">A logarithmic scale (0–14) measuring hydrogen ion activity in aqueous solution. pH 7 = neutral. pH &lt;7 = acidic. pH &gt;7 = alkaline. The skin's natural pH (acid mantle) is 4.5–5.5. Critical formulation variable: determines active ingredient efficacy (AHAs, vitamin C require low pH), preservative system activity (benzoates/sorbates inactive above pH 5.5), gelling agent behaviour (carbomers activated by neutralisation), and microbial growth rates (most pathogens prefer near-neutral pH).</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--stone">Formulation</span><span class="tag tag--sage">Skin biology</span></div>
+              <p class="glossary-entry__related">See also: <a href="formulation.html#ph">pH Optimisation guide</a></p>
+            </div>
+            <div class="glossary-entry" id="term-pif">
+              <dt class="glossary-entry__term">PIF</dt>
+              <abbr class="glossary-entry__abbr">Product Information File</abbr>
+              <dd class="glossary-entry__def">The mandatory documentation dossier required under EU Regulation 1223/2009 for every cosmetic product placed on the EU market. Must contain: cosmetic product safety report (CPSR), product description, GMP compliance statement, manufacturing method, evidence of claimed effects, and animal testing data (if any). Must be maintained and accessible to authorities for 10 years after last sale. The Responsible Person (RP) — the EU-based legal entity — bears responsibility for the PIF.</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--olive">EU Regulatory</span></div>
+            </div>
+          </dl>
+        </section>
+
+        <!-- S -->
+        <section class="glossary-section" id="section-S" aria-labelledby="letter-S">
+          <div class="glossary-section__header"><span class="glossary-section__letter" id="letter-S">S</span></div>
+          <dl>
+            <div class="glossary-entry" id="term-sccs">
+              <dt class="glossary-entry__term">SCCS</dt>
+              <abbr class="glossary-entry__abbr">Scientific Committee on Consumer Safety</abbr>
+              <dd class="glossary-entry__def">The EU scientific advisory body that evaluates the safety of cosmetic ingredients and issues formal opinions that inform updates to EU Regulation 1223/2009 Annexes. SCCS opinions — publicly available on the European Commission website — are the highest-quality safety assessments for cosmetic ingredients in the EU system. Industry must follow SCCS maximum concentrations and conditions of use.</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--olive">EU Regulatory</span></div>
+            </div>
+            <div class="glossary-entry" id="term-spf">
+              <dt class="glossary-entry__term">SPF</dt>
+              <abbr class="glossary-entry__abbr">Sun Protection Factor</abbr>
+              <dd class="glossary-entry__def">A measure of how much UV radiation (specifically UVB) a sunscreen absorbs before skin begins to burn. SPF 30 means 30× more UV exposure is required to produce erythema vs unprotected skin. Measured in vivo on human subjects (ISO 24444) or in vitro (FDA proposal). SPF only measures UVB protection — does not indicate UVA protection. Must be combined with UVA-PF (PA+ system in Asia; critical wavelength/1/3 rule in EU) to claim broad-spectrum protection. Applied at 2mg/cm² for testing; consumer application is typically 0.5–0.8mg/cm² — actual protection is significantly lower than labelled SPF.</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--sage">UV protection</span></div>
+            </div>
+            <div class="glossary-entry" id="term-sri">
+              <dt class="glossary-entry__term">SRI</dt>
+              <abbr class="glossary-entry__abbr">Subresource Integrity</abbr>
+              <dd class="glossary-entry__def">A web security feature — not a cosmetics term — but relevant to this site's security architecture. SRI allows browsers to verify that external resources (scripts, stylesheets from CDNs) have not been tampered with by specifying a cryptographic hash in the HTML tag. If the fetched resource doesn't match the hash, the browser refuses to execute it. Used on this site for Fuse.js loaded from jsDelivr CDN.</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--terracotta">Web security</span></div>
+            </div>
+          </dl>
+        </section>
+
+        <!-- T -->
+        <section class="glossary-section" id="section-T" aria-labelledby="letter-T">
+          <div class="glossary-section__header"><span class="glossary-section__letter" id="letter-T">T</span></div>
+          <dl>
+            <div class="glossary-entry" id="tewl">
+              <dt class="glossary-entry__term">TEWL</dt>
+              <abbr class="glossary-entry__abbr">Transepidermal Water Loss</abbr>
+              <dd class="glossary-entry__def">The rate of passive water diffusion through the intact skin barrier expressed as g/m²/h. Measured non-invasively using a Tewameter or VapoMeter (closed-chamber evaporimetry) or an open-chamber device. Normal facial TEWL: 5–10 g/m²/h. Clinically significant barrier disruption: &gt;25 g/m²/h. The primary objective endpoint in barrier repair studies, surfactant irritancy testing, and moisturiser efficacy clinical trials.</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--sage">Measurement</span><span class="tag tag--stone">Barrier</span></div>
+              <p class="glossary-entry__related">See also: <a href="skin-science.html#tewl">TEWL science chapter</a></p>
+            </div>
+            <div class="glossary-entry" id="term-tyrosinase">
+              <dt class="glossary-entry__term">Tyrosinase</dt>
+              <dd class="glossary-entry__def">A copper-containing metalloenzyme (EC 1.14.18.1) that catalyses two rate-limiting steps in melanin biosynthesis: hydroxylation of L-tyrosine to L-DOPA, and oxidation of L-DOPA to dopaquinone. The primary target of most skin-brightening and depigmenting cosmetic actives: kojic acid (copper chelation), ascorbic acid (reduction of dopaquinone), arbutin, tranexamic acid, niacinamide (indirect — inhibits melanosome transfer rather than tyrosinase directly), azelaic acid, and licorice extract (glabridin).</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--terracotta">Pigmentation</span><span class="tag tag--stone">Biochemistry</span></div>
+            </div>
+          </dl>
+        </section>
+
+        <!-- U -->
+        <section class="glossary-section" id="section-U" aria-labelledby="letter-U">
+          <div class="glossary-section__header"><span class="glossary-section__letter" id="letter-U">U</span></div>
+          <dl>
+            <div class="glossary-entry" id="term-uva-pf">
+              <dt class="glossary-entry__term">UVA-PF</dt>
+              <abbr class="glossary-entry__abbr">UVA Protection Factor</abbr>
+              <dd class="glossary-entry__def">A measure of a sunscreen's protection against UVA radiation (315–400nm). The EU uses the persistent pigment darkening (PPD) method (ISO 24442) — the PA+ system (PA+, PA++, PA+++, PA++++) widely used in Japan and Korea uses the same PPD method. The US FDA requires a critical wavelength ≥370nm for a "broad spectrum" claim. EU requires UVA-PF ≥ SPF/3. UVA protection is essential for photoageing and melanoma prevention — products with high SPF but low UVA-PF provide misleading protection.</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--sage">UV protection</span></div>
+            </div>
+          </dl>
+        </section>
+
+        <!-- V -->
+        <section class="glossary-section" id="section-V" aria-labelledby="letter-V">
+          <div class="glossary-section__header"><span class="glossary-section__letter" id="letter-V">V</span></div>
+          <dl>
+            <div class="glossary-entry" id="term-viscosity">
+              <dt class="glossary-entry__term">Viscosity</dt>
+              <dd class="glossary-entry__def">A measure of a fluid's resistance to flow, expressed in mPa·s (millipascal-seconds) or cP (centipoise). 1 cP = 1 mPa·s. Water: ~1 mPa·s. A light lotion: 1,000–5,000 mPa·s. A rich cream: 20,000–80,000 mPa·s. Most cosmetics are non-Newtonian — their viscosity changes under shear stress. Measured with a Brookfield rotational viscometer or oscillatory rheometer. Critical quality control parameter — viscosity shift during stability testing indicates emulsifier degradation or gelling system failure.</dd>
+              <div class="glossary-entry__tags"><span class="tag tag--stone">Formulation</span><span class="tag tag--stone">Rheology</span></div>
+              <p class="glossary-entry__related">See also: <a href="formulation.html#viscosity">Viscosity &amp; Rheology guide</a></p>
+            </div>
+          </dl>
+        </section>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="sidebar" aria-label="Glossary navigation">
+        <p class="sidebar__title">Quick jump</p>
+        <ul class="sidebar__list" role="list">
+          <li><a href="#regulatory" class="sidebar__link">📋 Regulatory frameworks</a></li>
+          <li><a href="#eu" class="sidebar__link">🇪🇺 EU 1223/2009</a></li>
+          <li><a href="#fda" class="sidebar__link">🇺🇸 FDA / MoCRA</a></li>
+          <li><a href="#iso" class="sidebar__link">🌍 ISO standards</a></li>
+          <li><a href="#inci" class="sidebar__link">I — INCI</a></li>
+          <li><a href="#tewl" class="sidebar__link">T — TEWL</a></li>
+          <li><a href="#term-hlb" class="sidebar__link">H — HLB</a></li>
+          <li><a href="#term-nmf" class="sidebar__link">N — NMF</a></li>
+          <li><a href="#term-spf" class="sidebar__link">S — SPF</a></li>
+          <li><a href="#term-mmp" class="sidebar__link">M — MMP</a></li>
+        </ul>
+        <div style="margin-top:var(--space-8);padding:var(--space-5);background:var(--bg-subtle);border-radius:var(--radius-lg);border:1px solid var(--border);">
+          <p class="sidebar__title">Related guides</p>
+          <ul class="sidebar__list" role="list">
+            <li><a href="formulation.html" class="sidebar__link" style="font-size:var(--text-xs);">→ Formulation science</a></li>
+            <li><a href="skin-science.html" class="sidebar__link" style="font-size:var(--text-xs);">→ Skin biology</a></li>
+            <li><a href="ingredients.html" class="sidebar__link" style="font-size:var(--text-xs);">→ Ingredient encyclopaedia</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="container">
+    <p class="no-results" id="no-results" role="status">No terms match your search.</p>
+  </div>
+
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__logo">Organic<span>Beauty</span></div>
+    <p class="footer__tagline">Advanced cosmetics science. No marketing fluff.</p>
+    <div class="footer__grid">
+      <div><p style="font-size:var(--text-sm);color:rgba(247,243,237,0.5);font-weight:300;line-height:1.8;max-width:280px;">An open learning resource on cosmetics chemistry, ingredient science, and skin biology.</p></div>
+      <div>
+        <p class="footer__col-title">Explore</p>
+        <ul class="footer__links" role="list">
+          <li><a href="ingredients.html" class="footer__link">Ingredients</a></li>
+          <li><a href="formulation.html" class="footer__link">Formulation</a></li>
+          <li><a href="skin-science.html" class="footer__link">Skin Science</a></li>
+          <li><a href="glossary.html" class="footer__link">Glossary</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Regulatory</p>
+        <ul class="footer__links" role="list">
+          <li><a href="#eu" class="footer__link">EU 1223/2009</a></li>
+          <li><a href="#fda" class="footer__link">FDA cosmetics</a></li>
+          <li><a href="#iso" class="footer__link">ISO 22716</a></li>
+          <li><a href="#inci" class="footer__link">INCI naming</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Key terms</p>
+        <ul class="footer__links" role="list">
+          <li><a href="#tewl" class="footer__link">TEWL</a></li>
+          <li><a href="#term-hlb" class="footer__link">HLB</a></li>
+          <li><a href="#term-spf" class="footer__link">SPF</a></li>
+          <li><a href="#term-nmf" class="footer__link">NMF</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 Organic Beauty Hub — learning resource, not medical advice</p>
+      <p>Built on Cloudflare Pages</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* Mobile nav */
+  const toggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+
+  /* Alpha nav — build from existing sections */
+  const sections   = document.querySelectorAll('.glossary-section[id^="section-"]');
+  const alphaNav   = document.querySelector('.alpha-nav');
+  const letters    = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  const hasSection = new Set([...sections].map(s => s.id.replace('section-','')));
+
+  letters.forEach(l => {
+    const btn = document.createElement('button');
+    btn.className   = 'alpha-btn' + (hasSection.has(l) ? ' has-entries' : '');
+    btn.textContent = l;
+    btn.setAttribute('aria-label', `Jump to letter ${l}`);
+    btn.disabled    = !hasSection.has(l);
+    if (hasSection.has(l)) {
+      btn.addEventListener('click', () => {
+        document.getElementById(`section-${l}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+    alphaNav.appendChild(btn);
+  });
+
+  /* Glossary search — simple text filter */
+  const searchInput = document.getElementById('glossary-search');
+  const entries     = document.querySelectorAll('.glossary-entry');
+  const noResults   = document.getElementById('no-results');
+
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.toLowerCase().trim();
+    let visible = 0;
+
+    entries.forEach(entry => {
+      const text = entry.textContent.toLowerCase();
+      const match = !q || text.includes(q);
+      entry.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+
+    /* Show/hide whole sections if all entries hidden */
+    sections.forEach(section => {
+      const sectionEntries = section.querySelectorAll('.glossary-entry');
+      const anyVisible = [...sectionEntries].some(e => e.style.display !== 'none');
+      section.style.display = anyVisible ? '' : 'none';
+    });
+
+    noResults.style.display = visible === 0 && q ? 'block' : 'none';
+  });
+</script>
+
+</body>
+</html>

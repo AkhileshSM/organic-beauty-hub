@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Advanced cosmetic formulation science — emulsion chemistry, HLB theory, preservation, pH optimisation, and stability testing.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#F7F3ED">
+  <title>Formulation Science — Organic Beauty Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .page-hero {
+      padding-block: var(--space-16) var(--space-10);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-subtle);
+    }
+    .page-hero__title {
+      font-family: var(--font-display);
+      font-size: var(--text-5xl);
+      font-weight: 300;
+      margin-bottom: var(--space-4);
+    }
+    .page-hero__title em { font-style: italic; color: var(--accent); }
+
+    /* Chapter nav */
+    .chapter-nav {
+      position: sticky;
+      top: 68px;
+      z-index: 50;
+      background: rgba(247,243,237,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding-block: var(--space-3);
+    }
+    .chapter-nav__list {
+      display: flex;
+      gap: var(--space-6);
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+    }
+    .chapter-nav__list::-webkit-scrollbar { display: none; }
+    .chapter-nav__link {
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+      white-space: nowrap;
+      transition: color var(--transition-fast);
+      padding-bottom: var(--space-1);
+      border-bottom: 1px solid transparent;
+    }
+    .chapter-nav__link:hover,
+    .chapter-nav__link.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* Content layout */
+    .content-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: var(--space-16);
+      align-items: start;
+      padding-block: var(--space-16);
+    }
+
+    /* Chapter sections */
+    .chapter {
+      padding-block: var(--space-12);
+      border-bottom: 1px solid var(--border);
+    }
+    .chapter:last-child { border-bottom: none; }
+    .chapter__label {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    .chapter__number {
+      font-family: var(--font-display);
+      font-size: var(--text-5xl);
+      font-weight: 300;
+      color: var(--border-strong);
+      line-height: 1;
+    }
+    .chapter__title {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      font-weight: 400;
+      margin-bottom: var(--space-6);
+    }
+    .chapter__title em { font-style: italic; color: var(--accent); }
+    .chapter__body {
+      font-size: var(--text-base);
+      color: var(--text-secondary);
+      line-height: 1.85;
+      max-width: 680px;
+    }
+    .chapter__body p + p { margin-top: var(--space-4); }
+    .chapter__body h4 {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      margin-block: var(--space-6) var(--space-3);
+      color: var(--text-primary);
+    }
+    .chapter__body ul {
+      list-style: disc;
+      padding-left: var(--space-6);
+      margin-top: var(--space-3);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    .chapter__body li { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.7; }
+
+    /* Callout boxes */
+    .callout {
+      margin-block: var(--space-6);
+      padding: var(--space-5) var(--space-6);
+      border-radius: var(--radius-lg);
+      border-left: 4px solid;
+      font-size: var(--text-sm);
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+    .callout--formula {
+      background: rgba(196,113,74,0.06);
+      border-color: var(--accent);
+    }
+    .callout--science {
+      background: rgba(125,155,118,0.08);
+      border-color: var(--color-sage);
+    }
+    .callout--warning {
+      background: rgba(196,113,74,0.08);
+      border-color: var(--color-terracotta);
+    }
+    .callout__title {
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: var(--space-2);
+    }
+    .callout code {
+      font-family: 'Courier New', monospace;
+      font-size: 0.85em;
+      background: rgba(61,43,31,0.07);
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+
+    /* HLB table */
+    .hlb-table-wrap { overflow-x: auto; margin-block: var(--space-6); }
+    .hlb-scale {
+      width: 100%;
+      margin-block: var(--space-4);
+    }
+    .hlb-scale__bar {
+      height: 10px;
+      border-radius: var(--radius-pill);
+      background: linear-gradient(to right, var(--color-olive), var(--color-sage), var(--color-stone), var(--color-terracotta));
+      position: relative;
+      margin-bottom: var(--space-2);
+    }
+    .hlb-scale__labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+    }
+
+    /* Phase diagram */
+    .phase-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: var(--space-4);
+      margin-block: var(--space-6);
+    }
+    .phase-card {
+      padding: var(--space-5);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+    .phase-card--water { background: rgba(125,155,118,0.08); border-color: rgba(125,155,118,0.2); }
+    .phase-card--oil   { background: rgba(196,113,74,0.08);  border-color: rgba(196,113,74,0.2); }
+    .phase-card--cool  { background: rgba(201,185,154,0.15); border-color: var(--border); }
+    .phase-card__title { font-family: var(--font-display); font-size: var(--text-xl); margin-bottom: var(--space-2); }
+    .phase-card__temp  { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: var(--space-3); }
+    .phase-card__items { font-size: var(--text-xs); color: var(--text-secondary); line-height: 1.8; }
+
+    /* PET table */
+    .pet-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: var(--space-4);
+      margin-block: var(--space-6);
+    }
+    .pet-card {
+      padding: var(--space-4);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: var(--bg-subtle);
+    }
+    .pet-card__category {
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: var(--space-2);
+    }
+    .pet-card__criteria { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.7; }
+
+    /* Sidebar TOC */
+    .sidebar {
+      position: sticky;
+      top: calc(68px + 48px + var(--space-8));
+    }
+    .sidebar__title {
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: var(--space-4);
+    }
+    .sidebar__list { display: flex; flex-direction: column; gap: var(--space-2); }
+    .sidebar__link {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      transition: color var(--transition-fast);
+      display: flex;
+      gap: var(--space-2);
+      align-items: baseline;
+    }
+    .sidebar__link:hover { color: var(--accent); }
+    .sidebar__num {
+      font-family: var(--font-display);
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 1024px) {
+      .content-layout { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .phase-cards { grid-template-columns: 1fr; }
+      .pet-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .pet-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<nav class="nav" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">Organic<span>Beauty</span></a>
+      <ul class="nav__links" id="nav-links" role="list">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="ingredients.html" class="nav__link">Ingredients</a></li>
+        <li><a href="formulation.html" class="nav__link active" aria-current="page">Formulation</a></li>
+        <li><a href="skin-science.html" class="nav__link">Skin Science</a></li>
+        <li><a href="glossary.html" class="nav__link">Glossary</a></li>
+      </ul>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+  <header class="page-hero" aria-labelledby="page-title">
+    <div class="container">
+      <p class="section-label" style="margin-bottom:var(--space-3);">Science of making</p>
+      <h1 class="page-hero__title" id="page-title">
+        Formulation <em>Science</em>
+      </h1>
+      <p class="lead" style="max-width:620px;">
+        From emulsion thermodynamics to preservative challenge testing — the physical chemistry behind every bottle, jar, and serum.
+      </p>
+    </div>
+  </header>
+
+  <!-- Chapter nav -->
+  <nav class="chapter-nav" aria-label="Chapter navigation">
+    <div class="container">
+      <ul class="chapter-nav__list" role="list">
+        <li><a href="#emulsions"    class="chapter-nav__link">01 Emulsions</a></li>
+        <li><a href="#hlb"          class="chapter-nav__link">02 HLB Theory</a></li>
+        <li><a href="#phases"       class="chapter-nav__link">03 Phase Behaviour</a></li>
+        <li><a href="#ph"           class="chapter-nav__link">04 pH Optimisation</a></li>
+        <li><a href="#preservation" class="chapter-nav__link">05 Preservation</a></li>
+        <li><a href="#stability"    class="chapter-nav__link">06 Stability Testing</a></li>
+        <li><a href="#viscosity"    class="chapter-nav__link">07 Viscosity</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="content-layout">
+
+      <!-- Main content -->
+      <div>
+
+        <!-- Chapter 1 -->
+        <article class="chapter" id="emulsions" aria-labelledby="ch1-title">
+          <div class="chapter__label">
+            <span class="chapter__number">01</span>
+            <span class="section-label">Foundation</span>
+          </div>
+          <h2 class="chapter__title" id="ch1-title">Emulsion <em>Chemistry</em></h2>
+          <div class="chapter__body">
+            <p>An emulsion is a thermodynamically unstable dispersion of two immiscible liquids — typically oil and water — stabilised by surfactants (emulsifiers). Because oil and water do not mix spontaneously (ΔG mixing > 0), all emulsions eventually separate without continuous mechanical and chemical stabilisation.</p>
+            <p>There are two primary emulsion types relevant to cosmetics:</p>
+            <ul>
+              <li><strong>Oil-in-Water (O/W):</strong> Oil droplets dispersed in a continuous water phase. Feels lighter, more hydrating, better for oily/combination skin. Easier to preserve. Most lotions, serums, and fluid creams are O/W.</li>
+              <li><strong>Water-in-Oil (W/O):</strong> Water droplets dispersed in a continuous oil phase. Richer, more occlusive, better for dry/barrier-compromised skin. Sunscreens and barrier creams are often W/O.</li>
+            </ul>
+            <h4>Advanced emulsion systems</h4>
+            <ul>
+              <li><strong>Multiple emulsions (W/O/W or O/W/O):</strong> Useful for encapsulating incompatible actives in the inner phase. Complex to stabilise.</li>
+              <li><strong>Nanoemulsions:</strong> Droplet size 20–200nm. Thermodynamically unstable but kinetically stable for years. Enhanced skin penetration, translucent appearance.</li>
+              <li><strong>Microemulsions:</strong> Droplet size &lt;20nm. Thermodynamically stable (ΔG &lt; 0). Form spontaneously. Require high surfactant concentrations (15–25%).</li>
+              <li><strong>Pickering emulsions:</strong> Stabilised by solid particles (silica, clay, starch) rather than molecular surfactants. Increasingly popular for clean beauty formulations.</li>
+            </ul>
+            <div class="callout callout--science">
+              <p class="callout__title">Ostwald Ripening</p>
+              The primary degradation pathway for nanoemulsions. Smaller droplets dissolve and redeposit on larger ones over time — driven by the Laplace pressure difference between droplets of different sizes. Mitigated by using oils with very low water solubility (triglycerides &gt; mineral oil) or adding a ripening inhibitor (e.g. hexadecane at 5–10% of oil phase).
+            </div>
+          </div>
+        </article>
+
+        <!-- Chapter 2 -->
+        <article class="chapter" id="hlb" aria-labelledby="ch2-title">
+          <div class="chapter__label">
+            <span class="chapter__number">02</span>
+            <span class="section-label">Emulsifier selection</span>
+          </div>
+          <h2 class="chapter__title" id="ch2-title"><em>HLB</em> Theory</h2>
+          <div class="chapter__body">
+            <p>The Hydrophilic-Lipophilic Balance (HLB) is a numerical scale (0–20) quantifying the relative affinity of an emulsifier for water vs oil phases. Developed by William Griffin at Atlas Chemical in 1949, it remains the primary tool for rational emulsifier selection.</p>
+
+            <div class="hlb-scale" aria-label="HLB scale from 0 to 20">
+              <div class="hlb-scale__bar"></div>
+              <div class="hlb-scale__labels">
+                <span>0 — Lipophilic (W/O)</span>
+                <span>6 — W/O emulsifier</span>
+                <span>10</span>
+                <span>14 — O/W emulsifier</span>
+                <span>20 — Hydrophilic</span>
+              </div>
+            </div>
+
+            <div class="hlb-table-wrap">
+              <table class="data-table" aria-label="HLB ranges and applications">
+                <thead>
+                  <tr>
+                    <th>HLB Range</th>
+                    <th>Application</th>
+                    <th>Example surfactants</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>1–3</td><td>Anti-foaming agents</td><td>Dimethicone</td></tr>
+                  <tr><td>3–6</td><td>W/O emulsifiers</td><td>Sorbitan oleate (Span 80)</td></tr>
+                  <tr><td>7–9</td><td>Wetting agents</td><td>Sorbitan monostearate</td></tr>
+                  <tr><td>8–16</td><td>O/W emulsifiers</td><td>Polysorbate 20, 60, 80</td></tr>
+                  <tr><td>13–16</td><td>Detergents</td><td>Sodium lauryl sulphate</td></tr>
+                  <tr><td>15–20</td><td>Solubilisers</td><td>PEG-40 hydrogenated castor oil</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4>Required HLB (rHLB)</h4>
+            <p>Every oil phase has a required HLB — the emulsifier HLB that produces the most stable emulsion for that oil. When blending emulsifiers, the blend HLB is calculated as the weighted average:</p>
+            <div class="callout callout--formula">
+              <p class="callout__title">HLB blend formula</p>
+              <code>HLB blend = (% emulsifier A × HLB A + % emulsifier B × HLB B) / 100</code>
+              <p style="margin-top:var(--space-3);">Example: 60% Span 80 (HLB 4.3) + 40% Tween 80 (HLB 15) = <strong>HLB 8.6</strong> — suitable for a light W/O emulsion.</p>
+            </div>
+            <p>Blending high- and low-HLB emulsifiers always outperforms a single emulsifier at the equivalent HLB — the synergistic packing at the oil-water interface is superior.</p>
+          </div>
+        </article>
+
+        <!-- Chapter 3 -->
+        <article class="chapter" id="phases" aria-labelledby="ch3-title">
+          <div class="chapter__label">
+            <span class="chapter__number">03</span>
+            <span class="section-label">Manufacturing</span>
+          </div>
+          <h2 class="chapter__title" id="ch3-title">Phase <em>Behaviour</em></h2>
+          <div class="chapter__body">
+            <p>Most emulsions are manufactured using a three-phase approach. Each phase is prepared separately at temperature, then combined in a controlled sequence to achieve droplet size, homogeneity, and stability.</p>
+            <div class="phase-cards" aria-label="Three manufacturing phases">
+              <div class="phase-card phase-card--water">
+                <p class="phase-card__title">Water Phase</p>
+                <p class="phase-card__temp">Heat to 70–80°C</p>
+                <p class="phase-card__items">Deionised water · Humectants (glycerin, glycols) · Water-soluble actives · Hydrophilic polymers (carbomer, HEC) · EDTA chelating agent</p>
+              </div>
+              <div class="phase-card phase-card--oil">
+                <p class="phase-card__title">Oil Phase</p>
+                <p class="phase-card__temp">Heat to 70–80°C</p>
+                <p class="phase-card__items">Emollients (esters, oils) · Emulsifiers · Waxes and butters · Oil-soluble actives · Vitamins E, A</p>
+              </div>
+              <div class="phase-card phase-card--cool">
+                <p class="phase-card__title">Cool-down Phase</p>
+                <p class="phase-card__temp">Add below 40°C</p>
+                <p class="phase-card__items">Heat-sensitive actives (vitamin C, retinol, peptides) · Fragrance · Preservatives · pH adjusters · Silicones</p>
+              </div>
+            </div>
+            <div class="callout callout--warning">
+              <p class="callout__title">Critical manufacturing rule</p>
+              Always add the water phase to the oil phase (for W/O) or oil phase to the water phase (for O/W) slowly and with continuous agitation. Reversed addition order or incorrect temperature matching causes phase inversion or catastrophic demulsification.
+            </div>
+          </div>
+        </article>
+
+        <!-- Chapter 4 -->
+        <article class="chapter" id="ph" aria-labelledby="ch4-title">
+          <div class="chapter__label">
+            <span class="chapter__number">04</span>
+            <span class="section-label">Formulation parameter</span>
+          </div>
+          <h2 class="chapter__title" id="ch4-title">pH <em>Optimisation</em></h2>
+          <div class="chapter__body">
+            <p>pH is arguably the single most important formulation variable. It affects active ingredient efficacy, preservative system activity, skin compatibility, gelling agent performance, and long-term stability simultaneously.</p>
+            <h4>Skin-compatible pH range</h4>
+            <p>Healthy skin surface pH is 4.5–5.5 (the "acid mantle"). Formulations significantly outside this range disrupt the acid mantle, impair serine protease activity, and reduce ceramide synthesis enzyme activity. For leave-on products, targeting pH 4.5–5.5 is both skin-compatible and optimal for most actives.</p>
+
+            <div class="hlb-table-wrap">
+              <table class="data-table" aria-label="pH requirements by active ingredient">
+                <thead>
+                  <tr>
+                    <th>Active</th>
+                    <th>Required pH</th>
+                    <th>Reason</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>L-Ascorbic Acid</td><td>2.5–3.5</td><td>Protonated form required for skin penetration; oxidises rapidly above pH 4</td></tr>
+                  <tr><td>AHA (glycolic, lactic)</td><td>3.0–4.0</td><td>Protonated acid form is the active species; above pH 4 efficacy collapses</td></tr>
+                  <tr><td>Salicylic Acid (BHA)</td><td>3.0–4.0</td><td>Same mechanism as AHAs; crystallises above pH 4.5</td></tr>
+                  <tr><td>Retinol</td><td>4.5–6.5</td><td>Degrades in alkaline conditions; compatible with acid mantle</td></tr>
+                  <tr><td>Niacinamide</td><td>5.0–7.0</td><td>Stable across wide range; avoid &lt;3.5 with vitamin C</td></tr>
+                  <tr><td>Zinc Oxide</td><td>5.0–8.0</td><td>Amphoteric — dissolves at extremes</td></tr>
+                  <tr><td>Peptides</td><td>5.0–7.0</td><td>Hydrolysis risk at extremes</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4>pH adjusters in formulation</h4>
+            <ul>
+              <li><strong>Citric acid / lactic acid:</strong> Lower pH — compatible with skin, buffering capacity, also mild humectants</li>
+              <li><strong>Sodium hydroxide (NaOH):</strong> Raise pH — use dilute solution (10–18% w/w); neutralises carbomers to activate gelling</li>
+              <li><strong>Triethanolamine (TEA):</strong> Raise pH — traditional carbomer neutraliser, but flagged for nitrosamine formation risk</li>
+              <li><strong>Aminomethyl propanol (AMP):</strong> Raise pH — preferred modern alternative to TEA; lower nitrosamine risk</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Chapter 5 -->
+        <article class="chapter" id="preservation" aria-labelledby="ch5-title">
+          <div class="chapter__label">
+            <span class="chapter__number">05</span>
+            <span class="section-label">Microbiology</span>
+          </div>
+          <h2 class="chapter__title" id="ch5-title"><em>Preservation</em></h2>
+          <div class="chapter__body">
+            <p>Preservation is the most technically demanding aspect of cosmetic formulation. An inadequately preserved product can become contaminated with Pseudomonas aeruginosa, Staphylococcus aureus, Candida albicans, or Aspergillus — causing serious consumer harm. EU Regulation 1223/2009 and ISO 11930 mandate efficacy testing.</p>
+
+            <h4>Preservative challenge test (PCT) — ISO 11930:2019</h4>
+            <p>The PCT inoculates a product with five standardised microorganisms at a defined concentration, incubates for 28 days, and measures log reduction at days 2, 7, 14, and 28. Products must achieve Category A (stringent) or Category B (acceptable) criteria.</p>
+            <div class="pet-grid">
+              <div class="pet-card">
+                <p class="pet-card__category">Bacteria (Gram−)</p>
+                <p class="pet-card__criteria">Pseudomonas aeruginosa ATCC 9027<br>Escherichia coli ATCC 8739</p>
+              </div>
+              <div class="pet-card">
+                <p class="pet-card__category">Bacteria (Gram+)</p>
+                <p class="pet-card__criteria">Staphylococcus aureus ATCC 6538<br>Burkholderia cepacia ATCC 25416</p>
+              </div>
+              <div class="pet-card">
+                <p class="pet-card__category">Fungi</p>
+                <p class="pet-card__criteria">Candida albicans ATCC 10231<br>Aspergillus brasiliensis ATCC 16404</p>
+              </div>
+            </div>
+
+            <h4>Modern preservative systems</h4>
+            <ul>
+              <li><strong>Phenoxyethanol (0.8–1%) + Ethylhexylglycerin (0.2%):</strong> Industry standard. Broad spectrum. EU max 1% total.</li>
+              <li><strong>Sodium benzoate (0.5%) + Potassium sorbate (0.5%):</strong> Natural-origin. pH-dependent — only effective below pH 5.5. Popular in "clean" formulations.</li>
+              <li><strong>Caprylyl glycol + Hexanediol:</strong> Multifunctional — humectant + mild antimicrobial. Requires boosters for full spectrum coverage.</li>
+              <li><strong>Benzyl alcohol (0.5–1%) + Dehydroacetic acid (0.2%):</strong> "Natural" alternative. Limited evidence base vs phenoxyethanol systems.</li>
+            </ul>
+
+            <div class="callout callout--warning">
+              <p class="callout__title">The preservation paradox</p>
+              The highest-risk products are water-based formulations sold as "preservative-free." Without an effective preservative system, microbial contamination during consumer use is a serious safety risk. "Free-from" marketing must never compromise preservation efficacy.
+            </div>
+          </div>
+        </article>
+
+        <!-- Chapter 6 -->
+        <article class="chapter" id="stability" aria-labelledby="ch6-title">
+          <div class="chapter__label">
+            <span class="chapter__number">06</span>
+            <span class="section-label">Quality assurance</span>
+          </div>
+          <h2 class="chapter__title" id="ch6-title">Stability <em>Testing</em></h2>
+          <div class="chapter__body">
+            <p>Stability testing confirms a formulation maintains its physical, chemical, and microbiological integrity over its intended shelf life. EU Regulation 1223/2009 requires stability data to support a product's Period After Opening (PAO) or minimum durability date.</p>
+            <h4>Standard stability protocol</h4>
+            <ul>
+              <li><strong>Real-time stability:</strong> 25°C / 60% RH for 24 months (full shelf-life confirmation)</li>
+              <li><strong>Accelerated stability:</strong> 40°C / 75% RH for 6 months (predictive — correlates approximately to 2 years at 25°C)</li>
+              <li><strong>Freeze-thaw cycling:</strong> 5 cycles between −10°C and +25°C — tests emulsion robustness</li>
+              <li><strong>Photo-stability:</strong> UV/VIS exposure per ICH Q1B — critical for vitamin C, retinol, and coloured formulations</li>
+              <li><strong>Thermal shock:</strong> 4°C ↔ 45°C rapid cycling — stress testing of emulsifier system</li>
+            </ul>
+            <h4>Parameters measured at each timepoint</h4>
+            <ul>
+              <li>Appearance (phase separation, sedimentation, colour change)</li>
+              <li>pH (drift indicates degradation reactions)</li>
+              <li>Viscosity (rheology shift indicates emulsifier breakdown)</li>
+              <li>Droplet size distribution (D50, D90 via laser diffraction)</li>
+              <li>Active ingredient assay (HPLC — confirms potency retention)</li>
+              <li>Microbial limits (per ISO 17516)</li>
+              <li>Odour (organoleptic)</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Chapter 7 -->
+        <article class="chapter" id="viscosity" aria-labelledby="ch7-title">
+          <div class="chapter__label">
+            <span class="chapter__number">07</span>
+            <span class="section-label">Rheology</span>
+          </div>
+          <h2 class="chapter__title" id="ch7-title">Viscosity &amp; <em>Rheology</em></h2>
+          <div class="chapter__body">
+            <p>Rheology — the study of flow and deformation — determines how a product feels, spreads, and deposits on skin. Most cosmetic formulations are non-Newtonian: their viscosity changes under shear stress (pumping, rubbing, spreading).</p>
+            <h4>Key rheological behaviours</h4>
+            <ul>
+              <li><strong>Shear-thinning (pseudoplastic):</strong> Viscosity decreases under shear. Ideal for pump dispensers — flows easily when pumped, thickens on skin. Most creams and lotions. Examples: carbomer gels, xanthan gum systems.</li>
+              <li><strong>Thixotropy:</strong> Time-dependent shear thinning — returns to original viscosity after rest. Luxury creams often exploit this for a "rich but absorbing" feel.</li>
+              <li><strong>Yield stress fluids:</strong> Don't flow until a minimum stress is exceeded. Useful for rinse-off products — stays where applied until rinsed. Carbopol ETD 2020 systems.</li>
+            </ul>
+            <h4>Common thickeners and their mechanisms</h4>
+            <ul>
+              <li><strong>Carbomers (Carbopol):</strong> Polyacrylic acid. pH-activated swelling — neutralise to pH 6–7 for maximum viscosity. Highly efficient: 0.3–1% achieves gel consistency.</li>
+              <li><strong>Xanthan gum:</strong> Microbial polysaccharide. Excellent salt tolerance. Synergistic with guar gum. Typical use 0.3–0.8%.</li>
+              <li><strong>Hydroxypropyl methylcellulose (HPMC):</strong> Semi-synthetic cellulose ether. Thermal gelation (gels on heating, liquefies on cooling). Good clarity.</li>
+              <li><strong>Cetyl/cetearyl alcohol:</strong> Fatty alcohols thicken O/W emulsions via lamellar liquid crystal formation — contributes simultaneously to emulsion stability and skin feel.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="sidebar" aria-label="Table of contents">
+        <p class="sidebar__title">In this guide</p>
+        <ul class="sidebar__list" role="list">
+          <li><a href="#emulsions"    class="sidebar__link"><span class="sidebar__num">01</span>Emulsion Chemistry</a></li>
+          <li><a href="#hlb"          class="sidebar__link"><span class="sidebar__num">02</span>HLB Theory</a></li>
+          <li><a href="#phases"       class="sidebar__link"><span class="sidebar__num">03</span>Phase Behaviour</a></li>
+          <li><a href="#ph"           class="sidebar__link"><span class="sidebar__num">04</span>pH Optimisation</a></li>
+          <li><a href="#preservation" class="sidebar__link"><span class="sidebar__num">05</span>Preservation</a></li>
+          <li><a href="#stability"    class="sidebar__link"><span class="sidebar__num">06</span>Stability Testing</a></li>
+          <li><a href="#viscosity"    class="sidebar__link"><span class="sidebar__num">07</span>Viscosity &amp; Rheology</a></li>
+        </ul>
+        <div style="margin-top:var(--space-8); padding:var(--space-5); background:var(--bg-subtle); border-radius:var(--radius-lg); border:1px solid var(--border);">
+          <p class="sidebar__title">Related</p>
+          <ul class="sidebar__list" role="list">
+            <li><a href="ingredients.html" class="sidebar__link" style="font-size:var(--text-xs);">→ Ingredient encyclopaedia</a></li>
+            <li><a href="skin-science.html" class="sidebar__link" style="font-size:var(--text-xs);">→ Skin barrier science</a></li>
+            <li><a href="glossary.html#iso" class="sidebar__link" style="font-size:var(--text-xs);">→ ISO 22716 GMP</a></li>
+          </ul>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__logo">Organic<span>Beauty</span></div>
+    <p class="footer__tagline">Advanced cosmetics science. No marketing fluff.</p>
+    <div class="footer__grid">
+      <div><p style="font-size:var(--text-sm);color:rgba(247,243,237,0.5);font-weight:300;line-height:1.8;max-width:280px;">An open learning resource on cosmetics chemistry, ingredient science, and skin biology.</p></div>
+      <div>
+        <p class="footer__col-title">Explore</p>
+        <ul class="footer__links" role="list">
+          <li><a href="ingredients.html" class="footer__link">Ingredients</a></li>
+          <li><a href="formulation.html" class="footer__link">Formulation</a></li>
+          <li><a href="skin-science.html" class="footer__link">Skin Science</a></li>
+          <li><a href="glossary.html" class="footer__link">Glossary</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Formulation</p>
+        <ul class="footer__links" role="list">
+          <li><a href="#emulsions" class="footer__link">Emulsions</a></li>
+          <li><a href="#hlb" class="footer__link">HLB Theory</a></li>
+          <li><a href="#preservation" class="footer__link">Preservation</a></li>
+          <li><a href="#stability" class="footer__link">Stability Testing</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Standards</p>
+        <ul class="footer__links" role="list">
+          <li><a href="glossary.html#iso" class="footer__link">ISO 22716</a></li>
+          <li><a href="glossary.html#iso11930" class="footer__link">ISO 11930</a></li>
+          <li><a href="glossary.html#eu" class="footer__link">EU 1223/2009</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 Organic Beauty Hub — learning resource, not medical advice</p>
+      <p>Built on Cloudflare Pages</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+
+  // Highlight chapter nav on scroll
+  const chapters = document.querySelectorAll('.chapter');
+  const navLinks = document.querySelectorAll('.chapter-nav__link');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const link = document.querySelector(`.chapter-nav__link[href="#${e.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  chapters.forEach(c => observer.observe(c));
+</script>
+
+</body>
+</html>
